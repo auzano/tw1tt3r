@@ -843,19 +843,8 @@ const posts = [
     ],
   },
 
-  // ── ORIGINAL POSTS 25–1 ──
-
   {
     id: 25, category: "geography", account: ACCOUNTS.geography, time: "1j",
-    text: "Australia is wider than the Moon.\n\nAustralia's diameter: ~4,000 km. The Moon's diameter: ~3,474 km. #geography",
-    thread: [
-      { text: "Australia spans ~4,000 km east to west. The Moon's diameter is ~3,474 km." },
-      { text: "Surface area comparison: Australia ~7.7 million km², Moon ~38 million km². The Moon is bigger overall — but Australia is wider." },
-      { text: "🔗 Source", isSource: true, source: { label: "NASA Moon Fact Sheet", url: "https://nssdc.gsfc.nasa.gov/planetary/factsheet/moonfact.html" } },
-    ],
-  },
-
-
     text: "Australia is wider than the Moon.\n\nAustralia's diameter: ~4,000 km. The Moon's diameter: ~3,474 km.\n\nA continent literally wider than Earth's only natural satellite. #geography",
     thread: [
       { text: "Australia spans about 4,000 km from east to west. The Moon's diameter is approximately 3,474 km.\n\nSo if you placed the Moon next to a map of Australia, it wouldn't even cover the full width." },

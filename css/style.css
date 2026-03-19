@@ -331,18 +331,6 @@ html, body {
   color: var(--accent);
 }
 
-.show-more {
-  display: inline-block;
-  margin-top: 4px;
-  color: var(--accent);
-  font-size: 14px;
-  cursor: pointer;
-}
-
-.show-more:hover {
-  text-decoration: underline;
-}
-
 /* ── ACTIONS ── */
 
 .tweet-actions {

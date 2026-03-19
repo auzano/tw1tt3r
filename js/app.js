@@ -1,6 +1,5 @@
 // ── APP ──
 
-const CHAR_LIMIT = 140;
 const PAGE_SIZE  = 8;
 
 let activeTab   = "all";
@@ -55,18 +54,8 @@ function renderHashtags(text) {
   return text.replace(/#(\w+)/g, '<span class="hashtag">#$1</span>');
 }
 
-function tweetTextHTML(text, postId) {
-  if (text.length <= CHAR_LIMIT) {
-    return `<div class="tweet-text">${renderHashtags(text)}</div>`;
-  }
-  const preview = text.slice(0, CHAR_LIMIT).trimEnd();
-  return `
-    <div class="tweet-text">
-      <span class="tweet-preview">${renderHashtags(preview)}&hellip;</span>
-      <span class="tweet-full" style="display:none;">${renderHashtags(text)}</span>
-      <span class="show-more" data-post="${postId}">Show more</span>
-    </div>
-  `;
+function tweetTextHTML(text) {
+  return `<div class="tweet-text">${renderHashtags(text)}</div>`;
 }
 
 function tweetHTML(post) {
@@ -81,7 +70,7 @@ function tweetHTML(post) {
           <span class="tweet-dot">·</span>
           <span class="tweet-time">${post.time}</span>
         </div>
-        ${tweetTextHTML(post.text, post.id)}
+        ${tweetTextHTML(post.text)}
         <div class="tweet-actions">
           <div class="action comment" data-stop>
             <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
@@ -109,19 +98,6 @@ function bindTweets(els) {
     el.addEventListener("keydown", e => {
       if (e.key === "Enter") window.location.href = `thread.html?id=${el.dataset.id}`;
     });
-
-    // Show more toggle
-    const showMore = el.querySelector(".show-more");
-    if (showMore) {
-      showMore.addEventListener("click", e => {
-        e.stopPropagation();
-        const preview = el.querySelector(".tweet-preview");
-        const full    = el.querySelector(".tweet-full");
-        preview.style.display = "none";
-        full.style.display    = "inline";
-        showMore.style.display = "none";
-      });
-    }
 
     // Like button
     const likeBtn = el.querySelector(".action.like");
