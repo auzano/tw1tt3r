@@ -269,10 +269,7 @@ document.querySelectorAll(".tab").forEach(tab => {
 
 // ── BOTTOM NAV ──
 document.getElementById("nav-home").addEventListener("click", () => {
-  activeNav = "home";
-  document.getElementById("nav-home").classList.add("active");
-  document.getElementById("nav-loved").classList.remove("active", "nav-loved-active");
-  renderFeed();
+  window.scrollTo({ top: 0, behavior: "smooth" });
 });
 document.getElementById("nav-loved").addEventListener("click", () => {
   activeNav = "loved";
