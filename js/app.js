@@ -1,19 +1,17 @@
 // ── APP ──
 
 let activeTab = "all";
+let activeNav = "home"; // "home" | "loved"
 
 // ── STORAGE ──
 function getLoved() {
   try { return new Set(JSON.parse(localStorage.getItem("loved") || "[]")); }
   catch { return new Set(); }
 }
-
 function saveLoved(set) {
   localStorage.setItem("loved", JSON.stringify([...set]));
 }
-
 function isLoved(id) { return getLoved().has(String(id)); }
-
 function toggleLove(id) {
   const loved = getLoved();
   if (loved.has(String(id))) loved.delete(String(id));
@@ -31,12 +29,23 @@ function shuffle(arr) {
   return a;
 }
 
-// ── SORT: unread (shuffled) dulu, loved (shuffled) di bawah ──
+// ── SORT: unread (shuffled) dulu, loved di bawah ──
 function sortPosts(list) {
   const loved = getLoved();
   const unread = list.filter(p => !loved.has(String(p.id)));
   const read   = list.filter(p =>  loved.has(String(p.id)));
   return [...shuffle(unread), ...shuffle(read)];
+}
+
+// ── PROGRESS BAR ──
+function updateProgress() {
+  const loved     = getLoved();
+  const total     = posts.length;
+  const lovedCount = [...loved].filter(id => posts.find(p => String(p.id) === id)).length;
+  const pct       = total === 0 ? 0 : Math.round((lovedCount / total) * 100);
+
+  document.getElementById("progress-fill").style.width  = pct + "%";
+  document.getElementById("progress-label").textContent = `${lovedCount}/${total} dibaca`;
 }
 
 // ── RENDER ──
@@ -77,20 +86,26 @@ function renderFeed() {
   const feed  = document.getElementById("feed");
   const empty = document.getElementById("empty");
 
-  const filtered = activeTab === "all"
-    ? posts
-    : posts.filter(p => p.category === activeTab);
+  let list = activeNav === "loved"
+    ? posts.filter(p => isLoved(p.id))
+    : (activeTab === "all" ? posts : posts.filter(p => p.category === activeTab));
 
-  if (filtered.length === 0) {
+  // loved tab: urutkan by loved (semua sudah loved, shuffle aja)
+  const sorted = activeNav === "loved" ? shuffle(list) : sortPosts(list);
+
+  if (sorted.length === 0) {
     feed.innerHTML = "";
+    empty.textContent = activeNav === "loved"
+      ? "Belum ada post yang kamu love."
+      : "Belum ada konten di kategori ini.";
     empty.style.display = "block";
     return;
   }
 
   empty.style.display = "none";
-  feed.innerHTML = sortPosts(filtered).map(tweetHTML).join("");
+  feed.innerHTML = sorted.map(tweetHTML).join("");
 
-  // Navigate to thread on tweet click
+  // Navigate to thread
   feed.querySelectorAll(".tweet").forEach(el => {
     el.addEventListener("click", e => {
       if (e.target.closest("[data-stop]")) return;
@@ -101,20 +116,23 @@ function renderFeed() {
     });
   });
 
-  // Love button — persist to localStorage, re-sort feed
+  // Love button
   feed.querySelectorAll(".action.like").forEach(btn => {
     btn.addEventListener("click", () => {
       const id = btn.dataset.id;
       toggleLove(id);
       btn.classList.toggle("liked");
+      updateProgress();
 
-      // Animate post out then re-render so it sinks to bottom
+      // Fade out then re-render
       const article = btn.closest(".tweet");
       article.style.transition = "opacity 0.25s";
       article.style.opacity = "0";
       setTimeout(() => renderFeed(), 280);
     });
   });
+
+  updateProgress();
 }
 
 // ── TABS ──
@@ -125,6 +143,23 @@ document.querySelectorAll(".tab").forEach(tab => {
     activeTab = tab.dataset.tab;
     renderFeed();
   });
+});
+
+// ── BOTTOM NAV ──
+document.getElementById("nav-home").addEventListener("click", () => {
+  activeNav = "home";
+  document.getElementById("nav-home").classList.add("active");
+  document.getElementById("nav-loved").classList.remove("active");
+  document.getElementById("nav-loved").classList.remove("nav-loved-active");
+  renderFeed();
+});
+
+document.getElementById("nav-loved").addEventListener("click", () => {
+  activeNav = "loved";
+  document.getElementById("nav-loved").classList.add("active");
+  document.getElementById("nav-loved").classList.add("nav-loved-active");
+  document.getElementById("nav-home").classList.remove("active");
+  renderFeed();
 });
 
 renderFeed();
