@@ -84,22 +84,23 @@ function init() {
             <span class="tweet-name">${post.account.name}</span>
             <span class="tweet-handle">${post.account.handle}</span>
           </div>
-          <div class="tweet-text source-tweet">
-            <a href="${item.source.url}" target="_blank" rel="noopener" class="source-link">
-              <div class="source-card">
-                <div class="source-icon">🔗</div>
-                <div class="source-label">${item.source.label}</div>
-                <div class="source-domain">${new URL(item.source.url).hostname.replace("www.", "")}</div>
+          <a href="${item.source.url}" target="_blank" rel="noopener" class="source-link">
+            <div class="source-card">
+              <div class="source-card-inner">
+                <div class="source-card-text">
+                  <div class="source-label">${item.source.label}</div>
+                  <div class="source-domain">${new URL(item.source.url).hostname.replace("www.", "")}</div>
+                </div>
+                <div class="source-arrow">↗</div>
               </div>
-            </a>
-          </div>
+            </div>
+          </a>
         </div>
       `;
     } else {
       el.innerHTML = `
         <div class="thread-line-wrap">
           <div class="tweet-avi" style="background:${post.account.bg};">${post.account.emoji}</div>
-          ${!isLast ? '<div class="thread-line"></div>' : ''}
         </div>
         <div class="tweet-body">
           <div class="tweet-header">
