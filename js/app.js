@@ -1,10 +1,12 @@
 // ── APP ──
 
-let activeTab  = "all";
-let activeNav  = "home"; // "home" | "loved"
-let sortedList = [];     // full sorted list for current view
+const CHAR_LIMIT = 140;
+const PAGE_SIZE  = 8;
+
+let activeTab   = "all";
+let activeNav   = "home";
+let sortedList  = [];
 let loadedCount = 0;
-const PAGE_SIZE = 8;     // tweets per batch
 
 // ── STORAGE ──
 function getLoved() {
@@ -17,12 +19,11 @@ function saveLoved(set) {
 function isLoved(id) { return getLoved().has(String(id)); }
 function toggleLove(id) {
   const loved = getLoved();
-  if (loved.has(String(id))) loved.delete(String(id));
-  else loved.add(String(id));
+  loved.has(String(id)) ? loved.delete(String(id)) : loved.add(String(id));
   saveLoved(loved);
 }
 
-// ── SHUFFLE (Fisher-Yates) ──
+// ── SHUFFLE ──
 function shuffle(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -32,7 +33,6 @@ function shuffle(arr) {
   return a;
 }
 
-// ── SORT: unread (shuffled) dulu, loved di bawah ──
 function sortPosts(list) {
   const loved  = getLoved();
   const unread = list.filter(p => !loved.has(String(p.id)));
@@ -47,12 +47,26 @@ function updateProgress() {
   const lovedCount = [...loved].filter(id => posts.find(p => String(p.id) === id)).length;
   const pct        = total === 0 ? 0 : Math.round((lovedCount / total) * 100);
   document.getElementById("progress-fill").style.width  = pct + "%";
-  document.getElementById("progress-label").textContent = `${lovedCount}/${total} dibaca`;
+  document.getElementById("progress-label").textContent = `${lovedCount}/${total} read`;
 }
 
-// ── RENDER ──
+// ── RENDER HELPERS ──
 function renderHashtags(text) {
   return text.replace(/#(\w+)/g, '<span class="hashtag">#$1</span>');
+}
+
+function tweetTextHTML(text, postId) {
+  if (text.length <= CHAR_LIMIT) {
+    return `<div class="tweet-text">${renderHashtags(text)}</div>`;
+  }
+  const preview = text.slice(0, CHAR_LIMIT).trimEnd();
+  return `
+    <div class="tweet-text">
+      <span class="tweet-preview">${renderHashtags(preview)}&hellip;</span>
+      <span class="tweet-full" style="display:none;">${renderHashtags(text)}</span>
+      <span class="show-more" data-post="${postId}">Show more</span>
+    </div>
+  `;
 }
 
 function tweetHTML(post) {
@@ -67,15 +81,15 @@ function tweetHTML(post) {
           <span class="tweet-dot">·</span>
           <span class="tweet-time">${post.time}</span>
         </div>
-        <div class="tweet-text">${renderHashtags(post.text)}</div>
+        ${tweetTextHTML(post.text, post.id)}
         <div class="tweet-actions">
-          <div class="action comment" title="Balas" data-stop>
+          <div class="action comment" data-stop>
             <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
           </div>
-          <div class="action repost" title="Repost" data-stop>
+          <div class="action repost" data-stop>
             <svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg>
           </div>
-          <div class="action like ${loved ? "liked" : ""}" title="Suka" data-stop data-id="${post.id}">
+          <div class="action like ${loved ? "liked" : ""}" data-stop data-id="${post.id}">
             <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
           </div>
         </div>
@@ -84,62 +98,53 @@ function tweetHTML(post) {
   `;
 }
 
+// ── BIND EVENTS ──
 function bindTweets(els) {
   els.forEach(el => {
+    // Navigate to thread (but not on action buttons or show-more)
     el.addEventListener("click", e => {
-      if (e.target.closest("[data-stop]")) return;
+      if (e.target.closest("[data-stop]") || e.target.closest(".show-more")) return;
       window.location.href = `thread.html?id=${el.dataset.id}`;
     });
     el.addEventListener("keydown", e => {
       if (e.key === "Enter") window.location.href = `thread.html?id=${el.dataset.id}`;
     });
-  });
 
-  els.forEach(el => {
-    const btn = el.querySelector(".action.like");
-    if (!btn) return;
-    btn.addEventListener("click", () => {
-      const id = btn.dataset.id;
-      toggleLove(id);
-      btn.classList.toggle("liked");
-      updateProgress();
-      const article = btn.closest(".tweet");
-      article.style.transition = "opacity 0.25s";
-      article.style.opacity = "0";
-      setTimeout(() => renderFeed(), 280);
-    });
+    // Show more toggle
+    const showMore = el.querySelector(".show-more");
+    if (showMore) {
+      showMore.addEventListener("click", e => {
+        e.stopPropagation();
+        const preview = el.querySelector(".tweet-preview");
+        const full    = el.querySelector(".tweet-full");
+        preview.style.display = "none";
+        full.style.display    = "inline";
+        showMore.style.display = "none";
+      });
+    }
+
+    // Like button
+    const likeBtn = el.querySelector(".action.like");
+    if (likeBtn) {
+      likeBtn.addEventListener("click", () => {
+        toggleLove(likeBtn.dataset.id);
+        likeBtn.classList.toggle("liked");
+        updateProgress();
+        const article = likeBtn.closest(".tweet");
+        article.style.transition = "opacity 0.25s";
+        article.style.opacity    = "0";
+        setTimeout(() => renderFeed(), 280);
+      });
+    }
   });
 }
 
-// ── LAZY LOAD — append next batch ──
-function loadMore() {
-  const feed  = document.getElementById("feed");
-  const batch = sortedList.slice(loadedCount, loadedCount + PAGE_SIZE);
-  if (batch.length === 0) {
-    observerDisconnect();
-    return;
-  }
-  const frag = document.createDocumentFragment();
-  batch.forEach(post => {
-    const div = document.createElement("div");
-    div.innerHTML = tweetHTML(post);
-    frag.appendChild(div.firstElementChild);
-  });
-  feed.appendChild(frag);
-  bindTweets([...feed.querySelectorAll(".tweet")].slice(loadedCount));
-  loadedCount += batch.length;
-
-  // If all loaded, stop observing
-  if (loadedCount >= sortedList.length) observerDisconnect();
-}
-
-// ── INTERSECTION OBSERVER (sentinel at bottom) ──
+// ── LAZY LOAD ──
 let observer = null;
 
 function observerDisconnect() {
   if (observer) { observer.disconnect(); observer = null; }
-  const s = document.getElementById("sentinel");
-  if (s) s.remove();
+  document.getElementById("sentinel")?.remove();
 }
 
 function setupObserver() {
@@ -148,21 +153,36 @@ function setupObserver() {
   sentinel.id = "sentinel";
   sentinel.style.height = "1px";
   document.getElementById("feed").after(sentinel);
-
   observer = new IntersectionObserver(entries => {
     if (entries[0].isIntersecting) loadMore();
   }, { rootMargin: "200px" });
-
   observer.observe(sentinel);
 }
 
-// ── RENDER FEED (reset + first batch) ──
+function loadMore() {
+  const feed  = document.getElementById("feed");
+  const batch = sortedList.slice(loadedCount, loadedCount + PAGE_SIZE);
+  if (!batch.length) { observerDisconnect(); return; }
+  const frag = document.createDocumentFragment();
+  batch.forEach(post => {
+    const div = document.createElement("div");
+    div.innerHTML = tweetHTML(post);
+    frag.appendChild(div.firstElementChild);
+  });
+  feed.appendChild(frag);
+  const allTweets = [...feed.querySelectorAll(".tweet")];
+  bindTweets(allTweets.slice(loadedCount));
+  loadedCount += batch.length;
+  if (loadedCount >= sortedList.length) observerDisconnect();
+}
+
+// ── RENDER FEED ──
 function renderFeed() {
   const feed  = document.getElementById("feed");
   const empty = document.getElementById("empty");
   observerDisconnect();
 
-  let list = activeNav === "loved"
+  const list = activeNav === "loved"
     ? posts.filter(p => isLoved(p.id))
     : (activeTab === "all" ? posts : posts.filter(p => p.category === activeTab));
 
@@ -170,35 +190,30 @@ function renderFeed() {
   loadedCount = 0;
   feed.innerHTML = "";
 
-  if (sortedList.length === 0) {
-    empty.textContent  = activeNav === "loved"
-      ? "Belum ada post yang kamu love."
-      : "Belum ada konten di kategori ini.";
+  if (!sortedList.length) {
+    empty.textContent   = activeNav === "loved" ? "No loved posts yet." : "No posts in this category.";
     empty.style.display = "block";
     updateProgress();
     return;
   }
 
   empty.style.display = "none";
-  loadMore();       // load first batch
-  setupObserver();  // lazy load the rest
+  loadMore();
+  setupObserver();
   updateProgress();
 }
 
 // ── PULL TO REFRESH ──
-(function setupPullToRefresh() {
-  const ptr        = document.getElementById("ptr");
-  const ptrArrow   = document.getElementById("ptr-arrow");
-  const THRESHOLD  = 72; // px to trigger refresh
-  let startY       = 0;
-  let pulling      = false;
-  let triggered    = false;
+(function setupPTR() {
+  const ptr       = document.getElementById("ptr");
+  const arrow     = document.getElementById("ptr-arrow");
+  const THRESHOLD = 72;
+  let startY = 0, pulling = false, triggered = false;
 
   document.addEventListener("touchstart", e => {
-    // Only trigger if at top of page
     if (window.scrollY > 0) return;
-    startY   = e.touches[0].clientY;
-    pulling  = true;
+    startY    = e.touches[0].clientY;
+    pulling   = true;
     triggered = false;
   }, { passive: true });
 
@@ -206,43 +221,37 @@ function renderFeed() {
     if (!pulling) return;
     const dy = e.touches[0].clientY - startY;
     if (dy <= 0) { ptr.style.height = "0"; return; }
-
-    const clamped = Math.min(dy * 0.45, THRESHOLD + 16);
-    ptr.style.height = clamped + "px";
-
-    // Rotate arrow as user pulls
-    const pct = Math.min(clamped / THRESHOLD, 1);
-    ptrArrow.style.transform = `rotate(${pct * 180}deg)`;
-    ptrArrow.style.opacity   = String(pct);
-
-    if (clamped >= THRESHOLD && !triggered) {
+    const h = Math.min(dy * 0.45, THRESHOLD + 16);
+    ptr.style.height = h + "px";
+    const pct = Math.min(h / THRESHOLD, 1);
+    arrow.style.opacity = String(pct);
+    if (!triggered) arrow.style.transform = `rotate(${pct * 180}deg)`;
+    if (h >= THRESHOLD && !triggered) {
       triggered = true;
-      ptrArrow.classList.add("ptr-spin");
-    } else if (clamped < THRESHOLD) {
+      arrow.classList.add("ptr-spin");
+    } else if (h < THRESHOLD && triggered) {
       triggered = false;
-      ptrArrow.classList.remove("ptr-spin");
+      arrow.classList.remove("ptr-spin");
     }
   }, { passive: true });
 
   document.addEventListener("touchend", () => {
     if (!pulling) return;
     pulling = false;
-
     if (triggered) {
-      // Hold spinner briefly then refresh
       setTimeout(() => {
         ptr.style.transition = "height 0.3s ease";
         ptr.style.height     = "0";
-        ptrArrow.classList.remove("ptr-spin");
-        ptrArrow.style.transform = "rotate(0deg)";
-        ptrArrow.style.opacity   = "0";
+        arrow.classList.remove("ptr-spin");
+        arrow.style.transform = "rotate(0deg)";
+        arrow.style.opacity   = "0";
         setTimeout(() => { ptr.style.transition = ""; }, 300);
         renderFeed();
       }, 500);
     } else {
       ptr.style.transition = "height 0.25s ease";
       ptr.style.height     = "0";
-      ptrArrow.style.opacity = "0";
+      arrow.style.opacity  = "0";
       setTimeout(() => { ptr.style.transition = ""; }, 250);
     }
   });
@@ -265,7 +274,6 @@ document.getElementById("nav-home").addEventListener("click", () => {
   document.getElementById("nav-loved").classList.remove("active", "nav-loved-active");
   renderFeed();
 });
-
 document.getElementById("nav-loved").addEventListener("click", () => {
   activeNav = "loved";
   document.getElementById("nav-loved").classList.add("active", "nav-loved-active");

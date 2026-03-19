@@ -40,13 +40,19 @@ html, body {
 /* ── TOP BAR ── */
 
 .topbar {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(12px);
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.92);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   border-bottom: 0.5px solid var(--border);
+  border-left: 0.5px solid var(--border);
+  border-right: 0.5px solid var(--border);
   padding: 0 16px;
 }
 
@@ -323,6 +329,18 @@ html, body {
 
 .tweet-text .hashtag {
   color: var(--accent);
+}
+
+.show-more {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--accent);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.show-more:hover {
+  text-decoration: underline;
 }
 
 /* ── ACTIONS ── */

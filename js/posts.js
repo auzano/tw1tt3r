@@ -24,7 +24,7 @@ const posts = [
 
   {
     id: 25,
-    category: "geografi",
+    category: "geography",
     account: ACCOUNTS.geografi,
     time: "1j",
     text: "Australia is wider than the Moon.\n\nAustralia's diameter: ~4,000 km. The Moon's diameter: ~3,474 km.\n\nA continent literally wider than Earth's only natural satellite. #geografi",
@@ -38,7 +38,7 @@ const posts = [
 
   {
     id: 24,
-    category: "geografi",
+    category: "geography",
     account: ACCOUNTS.geografi,
     time: "3j",
     text: "Rusia berbatasan dengan 14 negara — lebih banyak dari negara manapun di dunia.\n\nDan tetap saja, masih ada bagian Rusia yang tidak berbatasan dengan siapapun selama ribuan kilometer. #geografi",
@@ -52,7 +52,7 @@ const posts = [
 
   {
     id: 23,
-    category: "geografi",
+    category: "geography",
     account: ACCOUNTS.geografi,
     time: "6j",
     text: "There is a place on Earth where you can stand in four countries at once.\n\nIt's called Four Corners — the only point in the US where four states meet: Utah, Colorado, New Mexico, and Arizona. #geografi",
@@ -66,7 +66,7 @@ const posts = [
 
   {
     id: 22,
-    category: "geografi",
+    category: "geography",
     account: ACCOUNTS.geografi,
     time: "10j",
     text: "Kanada punya lebih banyak danau dibanding seluruh negara di dunia digabungkan.\n\nSekitar 60% danau air tawar di dunia ada di Kanada. #geografi",
@@ -80,7 +80,7 @@ const posts = [
 
   {
     id: 21,
-    category: "geografi",
+    category: "geography",
     account: ACCOUNTS.geografi,
     time: "14j",
     text: "Indonesia adalah negara kepulauan terbesar di dunia — tapi lebih dari 17.000 pulaunya, hanya sekitar 6.000 yang berpenghuni.\n\nSisanya? Kosong. Menunggu. #geografi",
@@ -96,7 +96,7 @@ const posts = [
 
   {
     id: 20,
-    category: "bahasa",
+    category: "language",
     account: ACCOUNTS.bahasa,
     time: "18j",
     text: "Bahasa Inggris punya kata \"the\" tapi banyak bahasa besar dunia tidak memiliki padanan langsungnya.\n\nBahasa Rusia, Jepang, Mandarin, Latin — semuanya tidak punya artikel definit. #bahasa",
@@ -111,7 +111,7 @@ const posts = [
 
   {
     id: 19,
-    category: "bahasa",
+    category: "language",
     account: ACCOUNTS.bahasa,
     time: "22j",
     text: "The word \"salary\" comes from salt.\n\nRoman soldiers were sometimes paid in salt — or given money to buy salt. The Latin word \"salarium\" became our modern \"salary.\" #bahasa #sejarah",
@@ -125,7 +125,7 @@ const posts = [
 
   {
     id: 18,
-    category: "bahasa",
+    category: "language",
     account: ACCOUNTS.bahasa,
     time: "1h",
     text: "Ada bahasa yang tidak punya kata untuk \"kiri\" dan \"kanan\".\n\nSuku Guugu Yimithirr di Australia menggunakan arah mata angin untuk segalanya — bahkan untuk menjelaskan posisi tubuh sendiri. #bahasa",
@@ -140,7 +140,7 @@ const posts = [
 
   {
     id: 17,
-    category: "bahasa",
+    category: "language",
     account: ACCOUNTS.bahasa,
     time: "1h",
     text: "\"Selamat\" dalam bahasa Indonesia artinya selamat — tapi kata ini asalnya dari bahasa Arab \"salama\" yang berarti damai, selamat, dan aman.\n\nSatu kata, dua peradaban. #bahasa #sejarah",
@@ -155,7 +155,7 @@ const posts = [
 
   {
     id: 16,
-    category: "bahasa",
+    category: "language",
     account: ACCOUNTS.bahasa,
     time: "2h",
     text: "\"Checkmate\" in chess comes from the Persian phrase \"Shah Mat\" — meaning \"the king is dead\" or \"the king is helpless.\"\n\nChess itself traveled from India → Persia → Arab → Europe. #bahasa #sejarah",
@@ -171,7 +171,7 @@ const posts = [
 
   {
     id: 15,
-    category: "sejarah",
+    category: "history",
     account: ACCOUNTS.sejarah,
     time: "2h",
     text: "Woolworth Building di New York — selesai 1913 — dibangun tanpa pinjaman bank.\n\nF.W. Woolworth membayar $13.5 juta tunai dari kantong sendiri. Setara dengan sekitar $400 juta hari ini. #sejarah",
@@ -185,7 +185,7 @@ const posts = [
 
   {
     id: 14,
-    category: "sejarah",
+    category: "history",
     account: ACCOUNTS.sejarah,
     time: "3h",
     text: "Perang terpendek dalam sejarah berlangsung hanya 38–45 menit.\n\nPerang Anglo-Zanzibar, 27 Agustus 1896. Zanzibar menyerah sebelum Inggris sempat sarapan siang. #sejarah",
@@ -199,7 +199,7 @@ const posts = [
 
   {
     id: 13,
-    category: "sejarah",
+    category: "history",
     account: ACCOUNTS.sejarah,
     time: "4h",
     text: "Patung Liberty awalnya berwarna cokelat kemerahan — bukan hijau.\n\nWarna hijaunya adalah hasil oksidasi tembaga selama 20–30 tahun setelah diresmikan pada 1886. #sejarah",
@@ -214,7 +214,7 @@ const posts = [
 
   {
     id: 12,
-    category: "sejarah",
+    category: "history",
     account: ACCOUNTS.sejarah,
     time: "5h",
     text: "Pada tahun 1962, AS hampir secara tidak sengaja meledakkan bom nuklir di atas North Carolina.\n\nDua dari tiga pengaman keselamatan gagal. Hanya satu saklar yang mencegah bencana. #sejarah",
@@ -229,7 +229,7 @@ const posts = [
 
   {
     id: 11,
-    category: "sejarah",
+    category: "history",
     account: ACCOUNTS.sejarah,
     time: "6h",
     text: "Surat kabar The New York Times pernah salah muat berita di halaman depan: mereka mengumumkan kematian Mark Twain — padahal Twain masih hidup.\n\nTwain merespons dengan tenang. #sejarah",
@@ -243,7 +243,7 @@ const posts = [
 
   {
     id: 10,
-    category: "sejarah",
+    category: "history",
     account: ACCOUNTS.sejarah,
     time: "8h",
     text: "Tembok Berlin runtuh bukan karena keputusan besar — tapi karena seorang pejabat salah membaca memo.\n\n9 November 1989. Kesalahan manusia yang mengubah sejarah. #sejarah",
@@ -260,7 +260,7 @@ const posts = [
 
   {
     id: 9,
-    category: "funfact",
+    category: "trivia",
     account: ACCOUNTS.funfact,
     time: "9h",
     text: "Vinegar can dissolve a pearl.\n\nCleopatra allegedly dissolved a pearl in wine vinegar and drank it to win a bet about throwing the most expensive dinner party in history. #funfact #sejarah",
@@ -306,7 +306,7 @@ const posts = [
 
   {
     id: 6,
-    category: "sejarah",
+    category: "history",
     account: ACCOUNTS.sejarah,
     time: "1h",
     text: "Nintendo berdiri tahun 1889 — bukan sebagai perusahaan game, tapi sebagai produsen kartu hanafuda Jepang. #sejarah #trivia",
@@ -335,7 +335,7 @@ const posts = [
 
   {
     id: 4,
-    category: "funfact",
+    category: "trivia",
     account: ACCOUNTS.sains,
     time: "12j",
     text: "Air panas kadang membeku lebih cepat dari air dingin — ini disebut Efek Mpemba.\n\nNamanya dari siswa Tanzania yang menemukannya saat membuat es krim tahun 1963. #sains #funfact",
@@ -350,7 +350,7 @@ const posts = [
 
   {
     id: 3,
-    category: "sejarah",
+    category: "history",
     account: ACCOUNTS.sejarah,
     time: "9j",
     text: "Oxford University lebih tua dari Kerajaan Aztec.\n\nPengajaran di Oxford dimulai ~1096 M. Kerajaan Aztec baru berdiri 1428 M. #sejarah",
@@ -364,7 +364,7 @@ const posts = [
 
   {
     id: 2,
-    category: "funfact",
+    category: "trivia",
     account: ACCOUNTS.funfact,
     time: "5j",
     text: "Kucing tidak meong ke sesama kucing.\n\nMereka hanya meong ke manusia — semacam bahasa khusus yang berkembang selama ribuan tahun domestikasi. #funfact",
