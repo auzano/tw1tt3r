@@ -12,6 +12,13 @@
 
 <div class="layout">
 
+  <!-- PULL TO REFRESH INDICATOR -->
+  <div id="ptr">
+    <svg id="ptr-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/>
+    </svg>
+  </div>
+
   <!-- TOP BAR -->
   <header class="topbar">
     <div class="topbar-inner">
@@ -37,6 +44,14 @@
       <div class="progress-label" id="progress-label"></div>
     </div>
   </header>
+
+  <!-- PULL TO REFRESH -->
+  <div id="ptr">
+    <svg id="ptr-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 2v10M12 2l-4 4M12 2l4 4"/>
+      <path d="M20 12a8 8 0 11-16 0"/>
+    </svg>
+  </div>
 
   <!-- FEED -->
   <main class="feed" id="feed"></main>

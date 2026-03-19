@@ -1,7 +1,10 @@
 // ── APP ──
 
-let activeTab = "all";
-let activeNav = "home"; // "home" | "loved"
+let activeTab  = "all";
+let activeNav  = "home"; // "home" | "loved"
+let sortedList = [];     // full sorted list for current view
+let loadedCount = 0;
+const PAGE_SIZE = 8;     // tweets per batch
 
 // ── STORAGE ──
 function getLoved() {
@@ -31,7 +34,7 @@ function shuffle(arr) {
 
 // ── SORT: unread (shuffled) dulu, loved di bawah ──
 function sortPosts(list) {
-  const loved = getLoved();
+  const loved  = getLoved();
   const unread = list.filter(p => !loved.has(String(p.id)));
   const read   = list.filter(p =>  loved.has(String(p.id)));
   return [...shuffle(unread), ...shuffle(read)];
@@ -39,11 +42,10 @@ function sortPosts(list) {
 
 // ── PROGRESS BAR ──
 function updateProgress() {
-  const loved     = getLoved();
-  const total     = posts.length;
+  const loved      = getLoved();
+  const total      = posts.length;
   const lovedCount = [...loved].filter(id => posts.find(p => String(p.id) === id)).length;
-  const pct       = total === 0 ? 0 : Math.round((lovedCount / total) * 100);
-
+  const pct        = total === 0 ? 0 : Math.round((lovedCount / total) * 100);
   document.getElementById("progress-fill").style.width  = pct + "%";
   document.getElementById("progress-label").textContent = `${lovedCount}/${total} dibaca`;
 }
@@ -82,31 +84,8 @@ function tweetHTML(post) {
   `;
 }
 
-function renderFeed() {
-  const feed  = document.getElementById("feed");
-  const empty = document.getElementById("empty");
-
-  let list = activeNav === "loved"
-    ? posts.filter(p => isLoved(p.id))
-    : (activeTab === "all" ? posts : posts.filter(p => p.category === activeTab));
-
-  // loved tab: urutkan by loved (semua sudah loved, shuffle aja)
-  const sorted = activeNav === "loved" ? shuffle(list) : sortPosts(list);
-
-  if (sorted.length === 0) {
-    feed.innerHTML = "";
-    empty.textContent = activeNav === "loved"
-      ? "Belum ada post yang kamu love."
-      : "Belum ada konten di kategori ini.";
-    empty.style.display = "block";
-    return;
-  }
-
-  empty.style.display = "none";
-  feed.innerHTML = sorted.map(tweetHTML).join("");
-
-  // Navigate to thread
-  feed.querySelectorAll(".tweet").forEach(el => {
+function bindTweets(els) {
+  els.forEach(el => {
     el.addEventListener("click", e => {
       if (e.target.closest("[data-stop]")) return;
       window.location.href = `thread.html?id=${el.dataset.id}`;
@@ -116,24 +95,158 @@ function renderFeed() {
     });
   });
 
-  // Love button
-  feed.querySelectorAll(".action.like").forEach(btn => {
+  els.forEach(el => {
+    const btn = el.querySelector(".action.like");
+    if (!btn) return;
     btn.addEventListener("click", () => {
       const id = btn.dataset.id;
       toggleLove(id);
       btn.classList.toggle("liked");
       updateProgress();
-
-      // Fade out then re-render
       const article = btn.closest(".tweet");
       article.style.transition = "opacity 0.25s";
       article.style.opacity = "0";
       setTimeout(() => renderFeed(), 280);
     });
   });
+}
 
+// ── LAZY LOAD — append next batch ──
+function loadMore() {
+  const feed  = document.getElementById("feed");
+  const batch = sortedList.slice(loadedCount, loadedCount + PAGE_SIZE);
+  if (batch.length === 0) {
+    observerDisconnect();
+    return;
+  }
+  const frag = document.createDocumentFragment();
+  batch.forEach(post => {
+    const div = document.createElement("div");
+    div.innerHTML = tweetHTML(post);
+    frag.appendChild(div.firstElementChild);
+  });
+  feed.appendChild(frag);
+  bindTweets([...feed.querySelectorAll(".tweet")].slice(loadedCount));
+  loadedCount += batch.length;
+
+  // If all loaded, stop observing
+  if (loadedCount >= sortedList.length) observerDisconnect();
+}
+
+// ── INTERSECTION OBSERVER (sentinel at bottom) ──
+let observer = null;
+
+function observerDisconnect() {
+  if (observer) { observer.disconnect(); observer = null; }
+  const s = document.getElementById("sentinel");
+  if (s) s.remove();
+}
+
+function setupObserver() {
+  observerDisconnect();
+  const sentinel = document.createElement("div");
+  sentinel.id = "sentinel";
+  sentinel.style.height = "1px";
+  document.getElementById("feed").after(sentinel);
+
+  observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) loadMore();
+  }, { rootMargin: "200px" });
+
+  observer.observe(sentinel);
+}
+
+// ── RENDER FEED (reset + first batch) ──
+function renderFeed() {
+  const feed  = document.getElementById("feed");
+  const empty = document.getElementById("empty");
+  observerDisconnect();
+
+  let list = activeNav === "loved"
+    ? posts.filter(p => isLoved(p.id))
+    : (activeTab === "all" ? posts : posts.filter(p => p.category === activeTab));
+
+  sortedList  = activeNav === "loved" ? shuffle(list) : sortPosts(list);
+  loadedCount = 0;
+  feed.innerHTML = "";
+
+  if (sortedList.length === 0) {
+    empty.textContent  = activeNav === "loved"
+      ? "Belum ada post yang kamu love."
+      : "Belum ada konten di kategori ini.";
+    empty.style.display = "block";
+    updateProgress();
+    return;
+  }
+
+  empty.style.display = "none";
+  loadMore();       // load first batch
+  setupObserver();  // lazy load the rest
   updateProgress();
 }
+
+// ── PULL TO REFRESH ──
+(function setupPullToRefresh() {
+  const ptr        = document.getElementById("ptr");
+  const ptrArrow   = document.getElementById("ptr-arrow");
+  const THRESHOLD  = 72; // px to trigger refresh
+  let startY       = 0;
+  let pulling      = false;
+  let triggered    = false;
+
+  document.addEventListener("touchstart", e => {
+    // Only trigger if at top of page
+    if (window.scrollY > 0) return;
+    startY   = e.touches[0].clientY;
+    pulling  = true;
+    triggered = false;
+  }, { passive: true });
+
+  document.addEventListener("touchmove", e => {
+    if (!pulling) return;
+    const dy = e.touches[0].clientY - startY;
+    if (dy <= 0) { ptr.style.height = "0"; return; }
+
+    const clamped = Math.min(dy * 0.45, THRESHOLD + 16);
+    ptr.style.height = clamped + "px";
+
+    // Rotate arrow as user pulls
+    const pct = Math.min(clamped / THRESHOLD, 1);
+    ptrArrow.style.transform = `rotate(${pct * 180}deg)`;
+    ptrArrow.style.opacity   = String(pct);
+
+    if (clamped >= THRESHOLD && !triggered) {
+      triggered = true;
+      ptrArrow.classList.add("ptr-spin");
+    } else if (clamped < THRESHOLD) {
+      triggered = false;
+      ptrArrow.classList.remove("ptr-spin");
+    }
+  }, { passive: true });
+
+  document.addEventListener("touchend", () => {
+    if (!pulling) return;
+    pulling = false;
+
+    if (triggered) {
+      // Hold spinner briefly then refresh
+      setTimeout(() => {
+        ptr.style.transition = "height 0.3s ease";
+        ptr.style.height     = "0";
+        ptrArrow.classList.remove("ptr-spin");
+        ptrArrow.style.transform = "rotate(0deg)";
+        ptrArrow.style.opacity   = "0";
+        setTimeout(() => { ptr.style.transition = ""; }, 300);
+        renderFeed();
+      }, 500);
+    } else {
+      ptr.style.transition = "height 0.25s ease";
+      ptr.style.height     = "0";
+      ptrArrow.style.opacity = "0";
+      setTimeout(() => { ptr.style.transition = ""; }, 250);
+    }
+  });
+})();
 
 // ── TABS ──
 document.querySelectorAll(".tab").forEach(tab => {
@@ -149,15 +262,13 @@ document.querySelectorAll(".tab").forEach(tab => {
 document.getElementById("nav-home").addEventListener("click", () => {
   activeNav = "home";
   document.getElementById("nav-home").classList.add("active");
-  document.getElementById("nav-loved").classList.remove("active");
-  document.getElementById("nav-loved").classList.remove("nav-loved-active");
+  document.getElementById("nav-loved").classList.remove("active", "nav-loved-active");
   renderFeed();
 });
 
 document.getElementById("nav-loved").addEventListener("click", () => {
   activeNav = "loved";
-  document.getElementById("nav-loved").classList.add("active");
-  document.getElementById("nav-loved").classList.add("nav-loved-active");
+  document.getElementById("nav-loved").classList.add("active", "nav-loved-active");
   document.getElementById("nav-home").classList.remove("active");
   renderFeed();
 });
