@@ -8,9 +8,122 @@ const ACCOUNTS = {
   language:  { name: "Words & Language",handle: "@wordsandlang",  emoji: "🗣️", bg: "#e0a800" },
   geography: { name: "World Map",       handle: "@worldmapfacts", emoji: "🗺️", bg: "#0d9488" },
   science:   { name: "Science Bits",    handle: "@sciencebits",   emoji: "🔬", bg: "#ff7043" },
+  ww1:       { name: "The Great War",   handle: "@thegreatwar",   emoji: "⚔️", bg: "#8b1a1a" },
 };
 
 const posts = [
+
+  // ── WW1 ──
+
+  {
+    id: 135, category: "ww1", account: ACCOUNTS.ww1, time: "1j",
+    text: "World War 1 was triggered by one assassination — but the real cause was a web of secret alliances that turned a regional dispute into a global catastrophe.\n\nAustria declared war on Serbia. Within 6 weeks, 8 nations were at war. #WW1",
+    thread: [
+      { text: "On June 28, 1914, Archduke Franz Ferdinand of Austria-Hungary was shot in Sarajevo by Gavrilo Princip, a Bosnian Serb nationalist.\n\nAustria blamed Serbia. Serbia partially complied with Austria's ultimatum — but not fully enough." },
+      { text: "What followed was a chain reaction of treaty obligations:\n\n🇦🇹 Austria declares war on Serbia\n🇷🇺 Russia mobilizes to defend Serbia\n🇩🇪 Germany declares war on Russia\n🇫🇷 France (allied with Russia) is drawn in\n🇬🇧 Britain enters when Germany invades neutral Belgium" },
+      { text: "The system of alliances — designed to create security — instead created a domino effect nobody fully anticipated.\n\nEurope had spent decades building a powder keg. The assassination was merely the spark." },
+      { text: "🔗 Source", isSource: true, source: { label: "Imperial War Museum — Causes of WW1", url: "https://www.iwm.org.uk/history/what-were-the-causes-of-the-first-world-war" } },
+    ],
+  },
+
+  {
+    id: 134, category: "ww1", account: ACCOUNTS.ww1, time: "2j",
+    text: "Soldiers on the Western Front lived in trenches for years — sometimes just 50 meters from the enemy.\n\nThe trenches stretched 700 km from Belgium to Switzerland without a single gap. #WW1",
+    thread: [
+      { text: "By late 1914, both sides had dug in — creating a continuous line of trenches from the North Sea coast of Belgium to the Swiss border." },
+      { text: "Life in the trenches:\n\n🐀 Rats the size of cats fed on corpses\n💧 Waterlogged mud caused 'trench foot' — feet rotted while attached\n💣 Random artillery made every moment dangerous\n😷 Disease killed more than combat in some periods" },
+      { text: "The two front lines were sometimes only 50–100 meters apart.\n\nSoldiers could hear the enemy talking and laughing across no-man's-land.\n\nYet for four years, neither side broke through decisively — millions died for advances measured in meters." },
+      { text: "🔗 Source", isSource: true, source: { label: "BBC History — Life in the Trenches", url: "https://www.bbc.co.uk/history/worldwars/wwone/trenchlife_01.shtml" } },
+    ],
+  },
+
+  {
+    id: 133, category: "ww1", account: ACCOUNTS.ww1, time: "3j",
+    text: "The Christmas Truce of 1914 was one of the most extraordinary moments in military history.\n\nGerman and British soldiers stopped fighting, met in no-man's-land, and played football. #WW1",
+    thread: [
+      { text: "On Christmas Eve 1914, German soldiers placed candles and Christmas trees along their trenches and began singing 'Stille Nacht.'\n\nBritish soldiers across the wire responded with applause and their own songs." },
+      { text: "By Christmas morning, soldiers from both sides were meeting in no-man's-land.\n\nThey exchanged gifts: German cigarettes for British corned beef. They showed each other photographs of their families." },
+      { text: "Football matches broke out spontaneously in several sectors.\n\nThe truce was not ordered by any commander — it happened from the bottom up, among ordinary men who recognized their shared humanity.\n\nBy Boxing Day, the killing had resumed." },
+      { text: "🔗 Source", isSource: true, source: { label: "Imperial War Museum — The Christmas Truce", url: "https://www.iwm.org.uk/history/the-christmas-truce" } },
+    ],
+  },
+
+  {
+    id: 132, category: "ww1", account: ACCOUNTS.ww1, time: "4j",
+    text: "July 1, 1916 remains the bloodiest day in British military history.\n\n57,470 British casualties on the first day of the Battle of the Somme. 19,240 killed. In one day. #WW1",
+    thread: [
+      { text: "British commanders were confident: a week of artillery bombardment would destroy German defenses before the infantry attacked.\n\nIt didn't work. The Germans had dug bunkers 12 meters underground." },
+      { text: "When the artillery stopped, Germans emerged in seconds, set up machine guns, and cut down the advancing British infantry — walking in neat lines across open fields." },
+      { text: "By nightfall:\n💀 57,470 British casualties\n💀 19,240 killed\n💀 35,493 wounded\n\nThe battle ran four more months. Total Allied casualties: 600,000+. Territorial gain: ~10 km." },
+      { text: "🔗 Source", isSource: true, source: { label: "National Army Museum — Battle of the Somme", url: "https://www.nam.ac.uk/explore/battle-somme" } },
+    ],
+  },
+
+  {
+    id: 131, category: "ww1", account: ACCOUNTS.ww1, time: "5j",
+    text: "Poison gas was used in warfare for the first time in WW1.\n\nGermany released 168 tons of chlorine gas at Ypres on April 22, 1915. Soldiers didn't know what was coming. #WW1",
+    thread: [
+      { text: "Allied soldiers saw a strange yellow-green cloud drifting toward them from the German lines.\n\nChlorine gas destroys lung tissue — victims effectively drowned on dry land. The initial attack created a 6 km gap in Allied lines." },
+      { text: "Both sides rapidly developed gas weapons:\n\n🟡 Chlorine (1915) — visible, strong smell\n🟤 Phosgene (1915) — 18x more lethal, less visible\n⚫ Mustard gas (1917) — blistered skin and lungs, lingered in soil for days" },
+      { text: "By the war's end, over 1 million soldiers had been gassed. ~90,000 died from gas alone.\n\nThe 1925 Geneva Protocol banning chemical weapons was a direct response to WW1's gas warfare." },
+      { text: "🔗 Source", isSource: true, source: { label: "History.com — Chemical Warfare in WW1", url: "https://www.history.com/topics/world-war-i/chemical-warfare" } },
+    ],
+  },
+
+  {
+    id: 130, category: "ww1", account: ACCOUNTS.ww1, time: "6j",
+    text: "The war that was 'over by Christmas' lasted 1,561 days.\n\nWhen it ended at 11:00 AM on November 11, 1918 — soldiers were still being killed at 10:59 AM. #WW1",
+    thread: [
+      { text: "In August 1914, soldiers marched off expecting a short, glorious war.\n\nGerman Kaiser Wilhelm II told his troops they'd be 'home before the leaves fall.' British recruiters promised it would be 'over by Christmas.'" },
+      { text: "The armistice was signed at 5:00 AM on November 11 — but didn't take effect until 11:00 AM.\n\nIn those six hours, both sides kept fighting. An estimated 11,000 soldiers were killed or wounded on the final morning — more than on D-Day in WW2." },
+      { text: "Total death toll:\n💀 ~9–10 million military dead\n💀 ~7–10 million civilian dead\n💀 Millions more from the 1918 flu pandemic, accelerated by wartime conditions\n\nThe war that was supposed to end all wars ended with the seeds of another already planted." },
+      { text: "🔗 Source", isSource: true, source: { label: "Encyclopaedia Britannica — World War I", url: "https://www.britannica.com/event/World-War-I" } },
+    ],
+  },
+
+  {
+    id: 129, category: "ww1", account: ACCOUNTS.ww1, time: "7j",
+    text: "The sinking of the Lusitania killed 1,198 people in 18 minutes.\n\nGermany had actually warned passengers not to board. The warning ran in US newspapers on the same day as the passenger list. #WW1",
+    thread: [
+      { text: "On May 7, 1915, the British liner RMS Lusitania was torpedoed by a German U-boat off Ireland.\n\nOf 1,962 aboard, 1,198 died — including 128 Americans." },
+      { text: "Germany had placed ads in US newspapers warning that ships sailing near Britain were liable to attack.\n\nThe ads ran the same day as the Lusitania's passenger list. Most passengers dismissed the warning as a bluff." },
+      { text: "The sinking caused massive outrage in the US and fundamentally shifted American public opinion against Germany.\n\nWhen Germany resumed unrestricted submarine warfare in 1917, it gave the US justification to declare war — sealing Germany's fate." },
+      { text: "🔗 Source", isSource: true, source: { label: "Smithsonian — The Sinking of the Lusitania", url: "https://www.smithsonianmag.com/history/the-real-reason-the-lusitania-sank-180955396/" } },
+    ],
+  },
+
+  {
+    id: 128, category: "ww1", account: ACCOUNTS.ww1, time: "8j",
+    text: "Lawrence of Arabia was a real person — and his guerrilla campaign reshaped the Middle East.\n\nHe was 28 when it started. The borders he helped draw still cause conflict today. #WW1",
+    thread: [
+      { text: "T.E. Lawrence was a British officer sent to Arabia to coordinate with Arab tribal leaders against the Ottoman Empire, which was allied with Germany." },
+      { text: "His key insight: the Arabs didn't need to defeat the Ottomans in pitched battle — just make them undefeatable.\n\n'The Turks could not fight a battle, so I must not give them one,' he wrote.\n\nConstant harassment of supply lines and railway sabotage proved more effective than frontal assault." },
+      { text: "The Arab Revolt helped capture Damascus in 1918.\n\nBut Lawrence felt he had betrayed the Arabs — Britain and France had secretly agreed (the Sykes-Picot Agreement) to divide the Middle East between themselves.\n\nThose borders, drawn by European officials with rulers on maps, still shape Middle Eastern conflicts today." },
+      { text: "🔗 Source", isSource: true, source: { label: "Imperial War Museum — T.E. Lawrence", url: "https://www.iwm.org.uk/history/who-was-lawrence-of-arabia" } },
+    ],
+  },
+
+  {
+    id: 127, category: "ww1", account: ACCOUNTS.ww1, time: "9j",
+    text: "WW1 introduced tanks, aircraft, submarines, chemical weapons, and radio to modern warfare.\n\nIn 4 years, war went from cavalry charges to mechanized slaughter. #WW1",
+    thread: [
+      { text: "Tanks were introduced at the Somme in September 1916. The Germans were so shocked they broke and ran.\n\nEarly tanks were slow and unreliable — but the concept transformed land warfare forever." },
+      { text: "Aircraft evolved from fragile reconnaissance biplanes to fighter planes and strategic bombers in four years.\n\nGermany bombed London with Zeppelin airships and Gotha bombers — the first strategic bombing campaign in history." },
+      { text: "Submarines nearly won the war for Germany.\n\nIn early 1917, U-boats were sinking Allied merchant ships faster than they could be built — Britain came within weeks of running out of food.\n\nThe convoy system finally defeated the U-boat campaign." },
+      { text: "🔗 Source", isSource: true, source: { label: "IWM — Technology of WW1", url: "https://www.iwm.org.uk/history/9-things-that-changed-the-world-during-world-war-one" } },
+    ],
+  },
+
+  {
+    id: 126, category: "ww1", account: ACCOUNTS.ww1, time: "10j",
+    text: "The Treaty of Versailles was so punishing toward Germany it arguably made WW2 inevitable.\n\nEconomist John Maynard Keynes walked out in protest and predicted exactly what would happen. #WW1",
+    thread: [
+      { text: "The Treaty of Versailles (1919) forced Germany to:\n\n💸 Pay 132 billion gold marks in reparations (~$400 billion today)\n🗺️ Lose 13% of its territory\n⚔️ Reduce its army to 100,000 men\n📜 Accept full blame for the war" },
+      { text: "Keynes resigned from the British delegation in protest and published 'The Economic Consequences of the Peace' — predicting the treaty would cause economic collapse and political extremism in Germany.\n\nHe was right within 15 years." },
+      { text: "The humiliation of Versailles became Hitler's most powerful political tool.\n\nHis entire rise was built on promising to reverse the 'stab in the back' that he claimed caused Germany's defeat.\n\nThe peace that ended WW1 made WW2 almost inevitable." },
+      { text: "🔗 Source", isSource: true, source: { label: "Britannica — Treaty of Versailles", url: "https://www.britannica.com/event/Treaty-of-Versailles-1919" } },
+    ],
+  },
 
   // ── POST 125–101 (Bahasa Indonesia) ──
 

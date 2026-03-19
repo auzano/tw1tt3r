@@ -223,19 +223,25 @@ html, body {
 .tabs {
   display: flex;
   border-bottom: 0.5px solid var(--border);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 
+.tabs::-webkit-scrollbar { display: none; }
+
 .tab {
-  flex: 1;
+  flex: 0 0 auto;
   text-align: center;
-  padding: 14px 0;
-  font-size: 15px;
+  padding: 14px 20px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--text-secondary);
   position: relative;
   cursor: pointer;
   transition: color 0.15s, background 0.15s;
   user-select: none;
+  white-space: nowrap;
 }
 
 .tab:hover {
@@ -252,7 +258,7 @@ html, body {
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 56px;
+  width: 40px;
   height: 4px;
   background: var(--accent);
   border-radius: 2px;
