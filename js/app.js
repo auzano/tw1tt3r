@@ -263,4 +263,16 @@ document.getElementById("nav-loved").addEventListener("click", () => {
   renderFeed();
 });
 
+// ── STREAK — track daily open ──
+(function trackDailyOpen() {
+  const today = new Date().toISOString().slice(0, 10);
+  try {
+    const data      = JSON.parse(localStorage.getItem("streak") || "{}");
+    if (data.lastDate === today) return;
+    const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
+    const newCount  = data.lastDate === yesterday ? (data.count || 0) + 1 : 1;
+    localStorage.setItem("streak", JSON.stringify({ count: newCount, lastDate: today }));
+  } catch {}
+})();
+
 renderFeed();
