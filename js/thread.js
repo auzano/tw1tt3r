@@ -1,5 +1,20 @@
 // ── THREAD ──
 
+// ── STORAGE (mirror of app.js) ──
+function getLoved() {
+  try { return new Set(JSON.parse(localStorage.getItem("loved") || "[]")); }
+  catch { return new Set(); }
+}
+function saveLoved(set) {
+  localStorage.setItem("loved", JSON.stringify([...set]));
+}
+function toggleLove(id) {
+  const loved = getLoved();
+  if (loved.has(String(id))) loved.delete(String(id));
+  else loved.add(String(id));
+  saveLoved(loved);
+}
+
 function renderHashtags(text) {
   return text.replace(/#(\w+)/g, '<span class="hashtag">#$1</span>');
 }
@@ -24,6 +39,8 @@ function init() {
 
   const feed = document.getElementById("thread-feed");
 
+  const isLoved = getLoved().has(String(post.id));
+
   // ── MAIN TWEET (focal tweet, Twitter-style bigger) ──
   const main = document.createElement("article");
   main.className = "tweet tweet-focal";
@@ -41,12 +58,13 @@ function init() {
     <div class="tweet-actions">
       <div class="action comment"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
       <div class="action repost"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></div>
-      <div class="action like"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
+      <div class="action like ${isLoved ? "liked" : ""}"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
     </div>
   `;
   feed.appendChild(main);
 
   main.querySelector(".action.like").addEventListener("click", function () {
+    toggleLove(post.id);
     this.classList.toggle("liked");
   });
 
@@ -97,6 +115,7 @@ function init() {
         </div>
       `;
       el.querySelector(".action.like").addEventListener("click", function () {
+        toggleLove(post.id);
         this.classList.toggle("liked");
       });
     }
