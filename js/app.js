@@ -263,6 +263,15 @@ document.getElementById("nav-loved").addEventListener("click", () => {
   renderFeed();
 });
 
+// ── READ TAB FROM URL ──
+const urlTab = new URLSearchParams(window.location.search).get("tab");
+if (urlTab) {
+  activeTab = urlTab;
+  document.querySelectorAll(".tab").forEach(t => {
+    t.classList.toggle("active", t.dataset.tab === urlTab);
+  });
+}
+
 // ── STREAK — track daily open ──
 (function trackDailyOpen() {
   const today = new Date().toISOString().slice(0, 10);

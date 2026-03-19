@@ -389,12 +389,46 @@ html, body {
   margin-bottom: 12px;
 }
 
+.tweet-avi-link,
+.tweet-account-link {
+  cursor: pointer;
+}
+
+.tweet-account-link:hover .tweet-name {
+  text-decoration: underline;
+}
+
+.tweet-focal-account {
+  flex: 1;
+}
+
+.tweet-cat-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 0.5px solid;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+}
+
+.tweet-cat-badge:hover {
+  opacity: 0.8;
+}
+
 .tweet-focal-text {
   font-size: 20px;
   line-height: 1.55;
   color: var(--text-primary);
   word-break: break-word;
   margin-bottom: 14px;
+}
+
+.tweet-focal-text .hashtag,
+.tweet-thread .hashtag {
+  color: var(--accent);
 }
 
 .tweet-focal-time {

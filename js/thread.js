@@ -46,10 +46,13 @@ function init() {
   main.className = "tweet tweet-focal";
   main.innerHTML = `
     <div class="tweet-focal-header">
-      <div class="tweet-avi" style="background:${post.account.bg};">${post.account.emoji}</div>
-      <div>
+      <div class="tweet-avi tweet-avi-link" style="background:${post.account.bg};">${post.account.emoji}</div>
+      <div class="tweet-focal-account tweet-account-link">
         <div class="tweet-name">${post.account.name}</div>
         <div class="tweet-handle">${post.account.handle}</div>
+      </div>
+      <div class="tweet-cat-badge" style="background:${post.account.bg}22;color:${post.account.bg};border-color:${post.account.bg}44;">
+        ${post.category.charAt(0).toUpperCase() + post.category.slice(1)}
       </div>
     </div>
     <div class="tweet-focal-text">${renderNewlines(post.text)}</div>
@@ -62,6 +65,13 @@ function init() {
     </div>
   `;
   feed.appendChild(main);
+
+  // Click account → go to feed filtered by category
+  main.querySelectorAll(".tweet-avi-link, .tweet-account-link, .tweet-cat-badge").forEach(el => {
+    el.addEventListener("click", () => {
+      window.location.href = `index.html?tab=${post.category}`;
+    });
+  });
 
   main.querySelector(".action.like").addEventListener("click", function () {
     toggleLove(post.id);
