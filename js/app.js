@@ -245,7 +245,16 @@ document.querySelectorAll(".tab").forEach(tab => {
 
 // ── BOTTOM NAV ──
 document.getElementById("nav-home").addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (activeNav === "loved") {
+    // Switch back to feed
+    activeNav = "home";
+    document.getElementById("nav-home").classList.add("active");
+    document.getElementById("nav-loved").classList.remove("active", "nav-loved-active");
+    renderFeed();
+  } else {
+    // Already on feed — scroll to top
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
 });
 document.getElementById("nav-loved").addEventListener("click", () => {
   activeNav = "loved";

@@ -12,7 +12,284 @@ const ACCOUNTS = {
 
 const posts = [
 
-  // ── POST 100 ──
+  // ── POST 125–101 (Bahasa Indonesia) ──
+
+  {
+    id: 125, category: "science", account: ACCOUNTS.science, time: "30m",
+    text: "Kamu tidak pernah benar-benar menyentuh apapun.\n\nGaya tolak-menolak elektron mencegah atom-atom bersentuhan langsung. Kursi yang kamu duduki sebenarnya menolak tubuhmu. #sains",
+    thread: [
+      { text: "Atom terdiri dari inti yang dikelilingi awan elektron. Ketika dua benda 'bersentuhan,' yang sebenarnya terjadi adalah awan elektron dari masing-masing benda saling tolak-menolak." },
+      { text: "Gaya ini disebut gaya tolak Pauli (Pauli exclusion principle) — dua elektron tidak bisa berada di tempat yang sama sekaligus.\n\nJadi ketika kamu 'duduk' di kursi, kamu sebenarnya melayang sepersekian nanometer di atasnya." },
+      { text: "Efek praktisnya: lantai tidak 'menopang' kamu secara fisik, melainkan gaya elektromagnetik yang mencegahmu jatuh menembus lantai.\n\nSentuhan adalah ilusi yang sangat meyakinkan." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "MinutePhysics — You Can't Touch Anything", url: "https://www.youtube.com/watch?v=BksyMWSygnc" } },
+    ],
+  },
+
+  {
+    id: 124, category: "history", account: ACCOUNTS.history, time: "1j",
+    text: "Indonesia pernah memiliki kota yang lebih besar dari London.\n\nPada abad ke-17, Batavia (Jakarta) adalah pusat perdagangan terbesar Asia dengan populasi yang melampaui banyak kota Eropa. #sejarah",
+    thread: [
+      { text: "VOC (Vereenigde Oost-Indische Compagnie) mendirikan Batavia pada 1619 di lokasi Jayakarta yang ditaklukkan.\n\nDalam 50 tahun, kota ini menjadi pusat jaringan perdagangan yang menghubungkan Eropa, India, China, dan Nusantara." },
+      { text: "Pada puncaknya, VOC adalah perusahaan terkaya yang pernah ada dalam sejarah manusia.\n\nNilai perusahaan saat ini (disesuaikan inflasi) diperkirakan setara dengan $8 triliun — lebih dari gabungan Apple, Microsoft, dan Amazon." },
+      { text: "Batavia dibangun menyerupai Amsterdam — lengkap dengan kanal-kanal yang justru menjadi sarang nyamuk dan wabah malaria.\n\nRatusan ribu orang meninggal akibat kondisi sanitasi yang buruk di kota 'terkaya' Asia ini." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Rijksmuseum — VOC History", url: "https://www.rijksmuseum.nl/en/rijksstudio/timeline-dutch-history/voc" } },
+    ],
+  },
+
+  {
+    id: 123, category: "language", account: ACCOUNTS.language, time: "2j",
+    text: "Bahasa Indonesia adalah satu-satunya bahasa di dunia yang sengaja diciptakan untuk menyatukan bangsa.\n\nDipilih bukan karena paling banyak penuturnya, tapi karena paling netral. #bahasa",
+    thread: [
+      { text: "Pada 1928, Sumpah Pemuda menetapkan bahasa Melayu — bukan Jawa — sebagai bahasa persatuan.\n\nPadahal penutur bahasa Jawa jauh lebih banyak. Tapi bahasa Jawa memiliki tingkatan sosial yang kompleks (krama, ngoko, dll) yang dianggap tidak egaliter." },
+      { text: "Bahasa Melayu dipilih karena sudah digunakan sebagai lingua franca perdagangan di seluruh Nusantara selama berabad-abad — netral, fleksibel, dan tidak dimiliki suku mana pun secara eksklusif." },
+      { text: "Hasilnya luar biasa: Indonesia dengan 700+ bahasa daerah berhasil membangun identitas nasional dengan satu bahasa tanpa mengorbankan keragaman.\n\nIni dianggap salah satu keberhasilan politik bahasa terbesar dalam sejarah modern." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Kemendikbud — Sejarah Bahasa Indonesia", url: "https://badanbahasa.kemdikbud.go.id" } },
+    ],
+  },
+
+  {
+    id: 122, category: "geography", account: ACCOUNTS.geography, time: "3j",
+    text: "Kalimantan adalah pulau ketiga terbesar di dunia — dan dibagi oleh tiga negara.\n\nIndonesia, Malaysia, dan Brunei. Tidak ada pulau lain di dunia yang dibagi tiga negara berdaulat. #geografi",
+    thread: [
+      { text: "Kalimantan (Borneo) memiliki luas ~743.000 km² — lebih besar dari Prancis dan Jerman digabungkan.\n\nIndonesia menguasai ~73% (Kalimantan), Malaysia ~26% (Sabah & Sarawak), Brunei ~1%." },
+      { text: "Hutan hujan Kalimantan adalah salah satu ekosistem paling kaya keanekaragaman hayati di dunia.\n\nOrang utan, bekantan, beruang madu, dan ratusan spesies endemik hanya ditemukan di sini." },
+      { text: "Ironinya: hutan Kalimantan yang tersisa adalah rumah bagi salah satu simpanan karbon terbesar di dunia.\n\nDeforestasi untuk sawit dan pertambangan tidak hanya menghancurkan habitat — tapi juga memperburuk krisis iklim global." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "WWF — Borneo", url: "https://www.worldwildlife.org/places/borneo-and-sumatra" } },
+    ],
+  },
+
+  {
+    id: 121, category: "trivia", account: ACCOUNTS.trivia, time: "4j",
+    text: "Kamu tidak bisa bersin saat tidur.\n\nRefleks bersin mati selama tidur karena saraf motorik yang mengontrolnya sebagian besar tidak aktif saat kamu tidur. #trivia #sains",
+    thread: [
+      { text: "Bersin adalah refleks yang dipicu oleh iritasi di hidung.\n\nTapi saat tidur, neuron motorik di batang otak yang mengontrol gerakan otot bersin mengalami inhibisi — sebagian besar 'dimatikan' untuk mencegah tubuh bereaksi terhadap mimpi." },
+      { text: "Ini bagian dari mekanisme yang lebih besar: selama tidur REM (mimpi), hampir semua otot tubuh mengalami atonia (kelumpuhan sementara) — itulah mengapa kamu tidak benar-benar berlari saat bermimpi berlari." },
+      { text: "Jika ada iritasi yang cukup kuat di hidungmu saat tidur, tubuh akan memilih membangunkanmu terlebih dahulu — baru bersin.\n\nBukan bersin sambil tidur." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Sleep Foundation — Why You Can't Sneeze While Sleeping", url: "https://www.sleepfoundation.org/sleep-faqs/can-you-sneeze-in-your-sleep" } },
+    ],
+  },
+
+  {
+    id: 120, category: "history", account: ACCOUNTS.history, time: "5j",
+    text: "Borobudur dibangun tanpa semen.\n\nRatusan ribu blok andesit disusun menggunakan sistem interlock — batu mengunci batu — tanpa perekat apapun. Dibangun sekitar 800 Masehi. #sejarah",
+    thread: [
+      { text: "Candi Borobudur terdiri dari sekitar 2 juta blok batu andesit dengan total berat ~55.000 ton.\n\nBlok-blok ini dipotong dengan presisi tinggi sehingga saling mengunci tanpa membutuhkan mortar atau semen." },
+      { text: "Teknik interlock ini ternyata sangat efektif untuk menghadapi gempa bumi — struktur bisa 'bergerak sedikit' saat gempa tanpa runtuh, karena tidak ada sambungan kaku yang bisa patah.\n\nBorobudur telah bertahan melalui ratusan gempa sejak abad ke-9." },
+      { text: "Yang mengherankan: setelah Borobudur terlupakan dan terkubur abu vulkanik selama berabad-abad, Thomas Stamford Raffles menemukan kembali candi ini pada 1814.\n\nStrukturnya masih utuh setelah lebih dari 1.000 tahun tanpa perawatan." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "UNESCO — Borobudur Temple Compounds", url: "https://whc.unesco.org/en/list/592/" } },
+    ],
+  },
+
+  {
+    id: 119, category: "science", account: ACCOUNTS.science, time: "6j",
+    text: "Petir menyambar Bumi sekitar 100 kali per detik.\n\nDalam waktu kamu membaca kalimat ini, lebih dari 500 petir telah menyambar di berbagai penjuru dunia. #sains",
+    thread: [
+      { text: "Bumi mengalami sekitar 40-50 petir per detik secara global — sekitar 1,4 miliar petir per tahun.\n\nSebagian besar (75%) adalah petir awan-ke-awan yang tidak terlihat dari tanah." },
+      { text: "Afrika adalah benua dengan frekuensi petir tertinggi di dunia.\n\nDataran tinggi Kongo dan danau-danau di Afrika Tengah adalah 'hotspot' petir terbesar di Bumi — jauh melampaui wilayah tropis lainnya." },
+      { text: "Indonesia termasuk wilayah dengan frekuensi petir tertinggi di Asia.\n\nKota Bogor pernah dijuluki 'kota petir' — dengan rata-rata 322 hari berhujan per tahun dan ribuan sambaran petir." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "NASA Lightning Imaging Sensor", url: "https://ghrc.nsstc.nasa.gov/lightning/" } },
+    ],
+  },
+
+  {
+    id: 118, category: "language", account: ACCOUNTS.language, time: "7j",
+    text: "Kata 'orangutan' berasal dari bahasa Melayu dan berarti 'manusia hutan'.\n\nOrang = manusia. Utan = hutan. Nama yang diberikan oleh penduduk asli Kalimantan dan Sumatra. #bahasa",
+    thread: [
+      { text: "Orangutan adalah primata besar satu-satunya yang berasal dari Asia — spesifik di Kalimantan dan Sumatra.\n\nMasyarakat Melayu lokal menyebutnya 'orang utan' karena kemiripannya dengan manusia dan kebiasaannya yang seperti 'hidup di hutan sendirian.'" },
+      { text: "Nama ini kemudian diadopsi oleh ilmuwan Eropa pada abad ke-17 ketika pertama kali mendokumentasikan satwa ini.\n\nJadi salah satu nama ilmiah hewan paling terkenal di dunia berasal dari bahasa Melayu sehari-hari." },
+      { text: "Orangutan berbagi ~97% DNA dengan manusia.\n\nMereka memiliki kemampuan membuat alat, mengenali diri sendiri di cermin, dan telah didokumentasikan menggunakan daun sebagai 'payung' saat hujan." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Smithsonian — Orangutan Facts", url: "https://nationalzoo.si.edu/animals/orangutan" } },
+    ],
+  },
+
+  {
+    id: 117, category: "geography", account: ACCOUNTS.geography, time: "8j",
+    text: "Laut Banda di Maluku adalah salah satu perairan terdalam dan paling terisolir di dunia.\n\nSuhu airnya berbeda drastis hanya dalam beberapa meter kedalaman karena tidak ada arus yang mencampurnya. #geografi",
+    thread: [
+      { text: "Laut Banda terletak di jantung Indonesia, dikelilingi pulau-pulau Maluku.\n\nKedalaman maksimalnya mencapai ~7.440 meter — lebih dalam dari kebanyakan palung di Samudra Hindia." },
+      { text: "Kondisi isolasinya menciptakan ekosistem yang unik.\n\nAir di bawah 1.000 meter hampir tidak pernah bercampur dengan permukaan, menciptakan 'dunia bawah laut' yang terpisah dengan spesies-spesies yang belum banyak diteliti." },
+      { text: "Kepulauan Banda sendiri adalah alasan utama penjajahan Eropa ke Nusantara — pala dan fuli hanya tumbuh di sini, dan nilainya di Eropa pada abad ke-16 setara dengan emas.\n\nDemi menguasai kepulauan kecil ini, VOC melakukan genosida terhadap penduduk asli Banda." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "LIPI — Banda Sea Oceanography", url: "https://www.lipi.go.id" } },
+    ],
+  },
+
+  {
+    id: 116, category: "trivia", account: ACCOUNTS.trivia, time: "9j",
+    text: "Sidik jari koala hampir identik dengan manusia.\n\nBahkan di bawah mikroskop forensik, sidik jari koala dan manusia bisa tertukar. Ini sempat membingungkan polisi Australia. #trivia",
+    thread: [
+      { text: "Koala dan manusia tidak berkerabat dekat — koala adalah marsupial yang berevolusi secara terpisah dari nenek moyang bersama mamalia sekitar 70 juta tahun lalu.\n\nNamun keduanya mengembangkan sidik jari yang hampir identik secara independen." },
+      { text: "Ini adalah contoh evolusi konvergen — dua spesies berbeda mengembangkan solusi yang sama untuk masalah yang sama.\n\nSidik jari membantu kedua spesies menggenggam dan memanipulasi benda dengan lebih baik." },
+      { text: "Ada kasus yang didokumentasikan di Australia di mana sidik jari koala yang tertinggal di TKP sempat menyebabkan kebingungan dalam investigasi forensik.\n\nKini laboratorium forensik Australia secara khusus dilatih untuk membedakannya." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Journal of Forensic Science — Koala Fingerprints", url: "https://onlinelibrary.wiley.com/doi/abs/10.1111/1556-4029.13562" } },
+    ],
+  },
+
+  {
+    id: 115, category: "history", account: ACCOUNTS.history, time: "10j",
+    text: "Kerajaan Majapahit pada puncaknya menguasai wilayah yang lebih luas dari Indonesia modern.\n\nMeliputi sebagian besar Asia Tenggara maritim — dari Semenanjung Malaya hingga Papua. #sejarah",
+    thread: [
+      { text: "Majapahit (1293–1527 M) adalah kekaisaran Hindu-Buddha terakhir dan terbesar di Nusantara.\n\nPada puncak kejayaannya di bawah Hayam Wuruk dan Patih Gajah Mada, pengaruhnya mencakup ~34 kerajaan bawahan." },
+      { text: "Sumpah Palapa Gajah Mada (sekitar 1336 M) berjanji tidak akan menikmati rempah-rempah sebelum seluruh Nusantara bersatu.\n\nWilayah yang berhasil dintegrasikan mencakup Jawa, Sumatra, Kalimantan, Sulawesi, Maluku, dan sebagian Semenanjung Malaya." },
+      { text: "Konsep Nusantara yang digunakan Indonesia modern berasal dari teks Majapahit.\n\nKetika para pendiri Indonesia memilih nama dan batas wilayah negara, mereka mengacu pada peta pengaruh Majapahit sebagai referensi historis." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Nagarakretagama — Kakawin Majapahit (terjemahan)", url: "https://www.worldhistory.org/Majapahit_Empire/" } },
+    ],
+  },
+
+  {
+    id: 114, category: "science", account: ACCOUNTS.science, time: "11j",
+    text: "Air bisa mendidih dan membeku pada saat yang sama.\n\nIni disebut titik triple — kondisi suhu dan tekanan spesifik di mana air bisa berada dalam tiga fase sekaligus. #sains",
+    thread: [
+      { text: "Titik triple air terjadi pada suhu 0,01°C dan tekanan 611,7 Pascal (jauh lebih rendah dari tekanan atmosfer normal).\n\nPada kondisi ini, air cair, es, dan uap air bisa eksis secara bersamaan dalam kesetimbangan." },
+      { text: "Ini bukan teori — bisa didemonstrasikan di laboratorium.\n\nTurunkan tekanan di atas air yang hampir membeku, dan kamu akan melihat air mendidih dan membeku secara bersamaan." },
+      { text: "Titik triple digunakan sebagai standar kalibrasi internasional untuk termometer presisi.\n\nSampai 2019, definisi resmi satu kelvin (unit suhu SI) didasarkan pada titik triple air." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "NIST — Triple Point of Water", url: "https://www.nist.gov/si-redefinition/kelvin-introduction" } },
+    ],
+  },
+
+  {
+    id: 113, category: "language", account: ACCOUNTS.language, time: "12j",
+    text: "Bahasa Jawa memiliki setidaknya tiga tingkatan bahasa yang berbeda tergantung status sosial.\n\nNgoko (informal), Madya (tengah), dan Krama (formal). Salah pilih tingkatan bisa menjadi penghinaan. #bahasa",
+    thread: [
+      { text: "Sistem tingkatan bahasa Jawa (undha-usuk) bukan sekadar formal/informal seperti 'vous/tu' dalam bahasa Prancis.\n\nIni adalah sistem lengkap dengan ribuan kata berbeda yang menggantikan satu sama lain tergantung siapa yang berbicara kepada siapa." },
+      { text: "Contoh:\nKata 'makan' dalam bahasa Jawa:\n• Ngoko: mangan\n• Madya: nedha\n• Krama: dhahar\n\nKata yang sama, tiga bentuk berbeda, tiga konteks sosial berbeda." },
+      { text: "Bagi generasi muda Jawa urban, sistem ini semakin sulit dikuasai.\n\nBahasa Indonesia yang egaliter dan netral secara sosial sering dipilih justru untuk menghindari risiko salah tingkatan — yang bisa dianggap kurang ajar." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Ethnologue — Javanese Language", url: "https://www.ethnologue.com/language/jav/" } },
+    ],
+  },
+
+  {
+    id: 112, category: "geography", account: ACCOUNTS.geography, time: "13j",
+    text: "Raja Ampat di Papua Barat memiliki keanekaragaman hayati laut tertinggi di dunia.\n\nLebih dari 75% spesies karang dunia dan 1.500+ spesies ikan ditemukan di sini. #geografi",
+    thread: [
+      { text: "Raja Ampat berada di 'Segitiga Terumbu Karang' — area di jantung Indo-Pasifik yang dianggap sebagai 'Amazon lautan' karena konsentrasi keanekaragaman hayatnya." },
+      { text: "Kenapa begitu kaya?\n\nRaja Ampat berada di pertemuan dua samudra besar (Pasifik dan Hindia), memiliki arus yang membawa nutrisi, dan lokasinya dekat dengan pusat evolusi terumbu karang Indo-Pasifik." },
+      { text: "Ironisnya, Raja Ampat baru dikenal dunia sekitar tahun 2000-an.\n\nSampai hari ini, sebagian besar wilayah lautnya belum sepenuhnya diteliti — para ilmuwan masih menemukan spesies baru setiap ekspedisi." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Conservation International — Coral Triangle", url: "https://www.conservation.org/priorities/ocean-health/coral-triangle" } },
+    ],
+  },
+
+  {
+    id: 111, category: "trivia", account: ACCOUNTS.trivia, time: "14j",
+    text: "Jerapah tidur hanya sekitar 30 menit per hari — biasanya dalam beberapa sesi pendek.\n\nMereka adalah mamalia yang tidur paling sedikit di dunia. #trivia",
+    thread: [
+      { text: "Jerapah tidur sekitar 4,6 menit per siklus tidur dan total sekitar 30 menit per hari.\n\nSebagai perbandingan: manusia butuh ~8 jam, kuda ~3 jam, kucing ~12–16 jam." },
+      { text: "Kenapa sangat sedikit?\n\nJerapah adalah mangsa utama singa dan predator besar lainnya.\n\nTidur berbaring membuat mereka rentan — butuh waktu lama untuk berdiri jika ada bahaya. Tidur sedikit adalah strategi survival." },
+      { text: "Saat tidur nyenyak (REM), jerapah melipat lehernya ke belakang tubuhnya dalam posisi yang terlihat sangat tidak nyaman.\n\nIni salah satu posisi tidur paling unik di dunia hewan." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Sleep — Giraffe sleep patterns", url: "https://academic.oup.com/sleep/article/40/3/zsw025/3074267" } },
+    ],
+  },
+
+  {
+    id: 110, category: "history", account: ACCOUNTS.history, time: "15j",
+    text: "Rempah-rempah dari Maluku pernah lebih berharga dari emas.\n\nPada abad ke-15, satu karung pala di Eropa bisa membeli sebidang tanah. Ini yang mendorong penjelajahan samudra. #sejarah",
+    thread: [
+      { text: "Sebelum era industri, rempah-rempah seperti pala, cengkih, lada, dan kayu manis adalah komoditas paling berharga di dunia.\n\nMereka digunakan sebagai pengawet makanan, obat-obatan, dan simbol status sosial di Eropa." },
+      { text: "Kepulauan Maluku adalah satu-satunya sumber pala dan cengkih di dunia.\n\nPortugis, Spanyol, Belanda, dan Inggris bersaing mati-matian untuk menguasai jalur perdagangan ke sana — inilah yang mendorong Age of Exploration." },
+      { text: "VOC menggunakan kekerasan ekstrem untuk mempertahankan monopoli rempah-rempah:\n\nMasyarakat Banda hampir dihabisi, dan VOC secara aktif menghancurkan pohon pala di luar wilayah kontrolnya untuk menjaga harga tetap tinggi." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Michael Krondl — The Taste of Conquest", url: "https://www.worldhistory.org/article/928/the-spice-trade--the-age-of-exploration/" } },
+    ],
+  },
+
+  {
+    id: 109, category: "science", account: ACCOUNTS.science, time: "16j",
+    text: "Komodo tidak beracun — mereka membunuh dengan bakteri dan antikoagulan dalam air liurnya.\n\nKorban bisa kabur dari gigitan, tapi mati beberapa hari kemudian dari infeksi. #sains",
+    thread: [
+      { text: "Mitos lama menyebut air liur komodo mengandung racun.\n\nPenelitian terbaru merevisi ini: komodo memiliki kelenjar air liur yang menghasilkan antikoagulan (mencegah pembekuan darah) dan berbagai bakteri patogen." },
+      { text: "Seekor mangsa yang berhasil kabur dari gigitan komodo akan mengalami:\n🩸 Pendarahan terus-menerus dari luka\n🦠 Infeksi bakteri yang menyebar cepat\n💀 Syok dan kematian dalam 1–3 hari\n\nKomodo kemudian tinggal mengikuti jejak mangsa yang melemah." },
+      { text: "Komodo hanya ada di Indonesia — Pulau Komodo, Rinca, Flores, Gili Motang, dan Padar.\n\nMereka adalah sisa-sisa populasi biawak raksasa yang dulu tersebar lebih luas di Asia dan Australia hingga sekitar 4 juta tahun lalu." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "PNAS — Komodo Dragon Venom Study", url: "https://www.pnas.org/doi/10.1073/pnas.0810087106" } },
+    ],
+  },
+
+  {
+    id: 108, category: "language", account: ACCOUNTS.language, time: "17j",
+    text: "Bahasa Sunda memiliki kata 'geulis' untuk menggambarkan kecantikan yang bersifat lembut dan alami.\n\nTidak ada padanan tepat dalam bahasa Indonesia maupun Inggris. #bahasa",
+    thread: [
+      { text: "Geulis dalam bahasa Sunda menggambarkan kecantikan yang bersifat organik, lembut, dan tidak berlebihan — lebih dekat ke 'charming' atau 'lovely' tapi dengan nuansa kealamiahan yang spesifik." },
+      { text: "Bahasa Sunda juga kaya akan kata-kata untuk menggambarkan nuansa emosi dan kondisi alam yang tidak ada padanannya dalam bahasa lain:\n\n• Guyub: harmoni dalam kebersamaan\n• Someah: ramah dan terbuka dari hati\n• Ngabeberah: menenangkan seseorang yang sedang sedih" },
+      { text: "Bahasa Sunda adalah bahasa daerah dengan penutur terbanyak kedua di Indonesia (~40 juta orang).\n\nNamun seperti banyak bahasa daerah lainnya, penutur muda yang fasih semakin berkurang setiap generasinya." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Ethnologue — Sundanese", url: "https://www.ethnologue.com/language/sun/" } },
+    ],
+  },
+
+  {
+    id: 107, category: "geography", account: ACCOUNTS.geography, time: "18j",
+    text: "Gunung Krakatau yang meletus pada 1883 terdengar sejauh 4.800 km — suara paling keras dalam sejarah manusia yang tercatat.\n\nLetusannya menghancurkan pulau asal dan menciptakan anak Krakatau. #geografi #sejarah",
+    thread: [
+      { text: "Letusan Krakatau pada 27 Agustus 1883 adalah salah satu bencana alam paling dahsyat dalam sejarah modern.\n\nGelombang udara letusannya mengelilingi Bumi tujuh kali dan tercatat oleh barometer di seluruh dunia." },
+      { text: "Efek global:\n🌡️ Suhu rata-rata Bumi turun 1,2°C selama 5 tahun\n🌅 Langit merah dan ungu di seluruh dunia selama berbulan-bulan\n🌊 Tsunami setinggi 30 meter menewaskan ~36.000 orang\n🎨 Lukisan 'The Scream' oleh Munch terinspirasi dari langit merah pasca-Krakatau" },
+      { text: "Yang tersisa dari letusan itu hanyalah kaldera bawah laut.\n\nNamun pada 1927, aktivitas vulkanik baru muncul dari kaldera itu — dan Anak Krakatau lahir.\n\nPada 2018, Anak Krakatau meletus dan sebagian lerengnya runtuh ke laut, memicu tsunami yang menewaskan lebih dari 400 orang." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "USGS — Krakatau Volcano", url: "https://www.usgs.gov/volcanoes/krakatau" } },
+    ],
+  },
+
+  {
+    id: 106, category: "trivia", account: ACCOUNTS.trivia, time: "19j",
+    text: "Semut tidak pernah tidur.\n\nSebaliknya, mereka mengambil ratusan 'power nap' singkat sepanjang hari — masing-masing sekitar 1 menit. #trivia #sains",
+    thread: [
+      { text: "Penelitian dari University of Missouri menemukan bahwa semut pekerja mengambil sekitar 250 siklus tidur per hari, masing-masing ~1,1 menit.\n\nTotal tidur harian: ~4,8 jam — tapi tersebar dalam ratusan fragmen kecil." },
+      { text: "Ratu semut tidur secara berbeda — siklus yang lebih panjang dan lebih dalam.\n\nIni mungkin mengapa ratu semut bisa hidup 20–30 tahun, sementara semut pekerja hanya hidup 1–3 tahun." },
+      { text: "Pola tidur semut ini disebut 'polifasik' — tidur dalam banyak sesi pendek, bukan satu sesi panjang seperti manusia.\n\nManusia modern dengan jadwal kerja shift malam juga kadang mengembangkan pola polifasik secara alami." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Journal of Insect Behavior — Sleep in Fire Ants", url: "https://link.springer.com/article/10.1007/s10905-009-9173-4" } },
+    ],
+  },
+
+  {
+    id: 105, category: "history", account: ACCOUNTS.history, time: "20j",
+    text: "Pramoedya Ananta Toer menulis tetralogi Buru di atas kertu rokok dan ingatan.\n\nDilarang membawa kertas, dia menghafal seluruh novel dan mendiktekannya kepada sesama tahanan. #sejarah",
+    thread: [
+      { text: "Pramoedya Ananta Toer, salah satu sastrawan terbesar Asia, dipenjarakan tanpa pengadilan di Pulau Buru dari 1969–1979 karena dianggap berhaluan kiri.\n\nDi pulau ini, para tahanan dilarang menulis atau membaca." },
+      { text: "Pramoedya mengatasi larangan ini dengan mendiktekan novelnya kepada sesama tahanan secara lisan — tradisi lisan yang ia sadari mirip dengan tradisi bercerita Nusantara kuno.\n\nDraft pertama 'Bumi Manusia' ada sepenuhnya dalam ingatan kolektif para tahanan." },
+      { text: "Tetralogi Buru (Bumi Manusia, Anak Semua Bangsa, Jejak Langkah, Rumah Kaca) diterjemahkan ke puluhan bahasa.\n\nPramoedya beberapa kali dinominasikan untuk Nobel Sastra. Bukunya masih dilarang di Indonesia selama bertahun-tahun setelah ia bebas." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Penguin Books — Pramoedya Ananta Toer", url: "https://www.penguinrandomhouse.com/authors/11997/pramoedya-ananta-toer/" } },
+    ],
+  },
+
+  {
+    id: 104, category: "science", account: ACCOUNTS.science, time: "21j",
+    text: "Pohon pisang secara teknis bukan pohon — melainkan tanaman herba terbesar di dunia.\n\nBatang pisang yang terlihat seperti kayu sebenarnya terbuat dari pelepah daun yang berlapis-lapis. #sains",
+    thread: [
+      { text: "Pohon sejati memiliki batang berkayu yang tumbuh setiap tahun.\n\nBatang pisang tidak memiliki jaringan kayu — sepenuhnya terbuat dari pelepah daun yang tersusun rapat membentuk 'pseudo-stem' (batang semu)." },
+      { text: "Secara klasifikasi botani, pisang adalah tanaman herba — sekelompok dengan tanaman seperti kunyit dan jahe, bukan dengan pohon mangga atau kelapa.\n\nPisang adalah tanaman herba terbesar di dunia, bisa mencapai tinggi 9 meter." },
+      { text: "Setiap 'pohon' pisang hanya berbuah satu kali seumur hidupnya.\n\nSetelah berbuah, batang utama mati. Tapi dari akarnya, tunas baru (anakan) tumbuh untuk melanjutkan siklus — itulah mengapa kebun pisang bisa terus produktif." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Kew Gardens — Banana Plant Facts", url: "https://www.kew.org/plants/bananas" } },
+    ],
+  },
+
+  {
+    id: 103, category: "geography", account: ACCOUNTS.geography, time: "22j",
+    text: "Danau Toba di Sumatra adalah kaldera supervolcano terbesar di dunia.\n\nLetusannya 74.000 tahun lalu hampir memusnahkan seluruh umat manusia — populasi manusia mungkin turun hingga beberapa ribu orang. #geografi",
+    thread: [
+      { text: "Letusan Toba 74.000 tahun lalu adalah letusan gunung berapi terbesar dalam 2 juta tahun terakhir.\n\nAbu vulkaniknya menutupi seluruh Asia Selatan setebal 15 cm dan menyebabkan 'musim dingin vulkanik' global selama bertahun-tahun." },
+      { text: "Hipotesis 'Toba Catastrophe' menyatakan bahwa letusan ini hampir memusnahkan Homo sapiens.\n\nAnalisis genetik menunjukkan bahwa semua manusia modern mungkin merupakan keturunan dari populasi yang sangat kecil (~3.000–10.000 individu) yang selamat dari bencana ini." },
+      { text: "Hari ini, danau Toba yang tenang dengan luas 1.145 km² dan kedalaman 505 meter adalah kaldera terbesar di dunia.\n\nPulau Samosir di tengah danau sebenarnya adalah kubah lava yang terangkat secara perlahan — tanda bahwa sistem vulkanik di bawahnya masih aktif." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "USGS — Toba Supervolcano", url: "https://www.usgs.gov/programs/VHP/toba-supervolcano" } },
+    ],
+  },
+
+  {
+    id: 102, category: "language", account: ACCOUNTS.language, time: "23j",
+    text: "Bahasa Melayu/Indonesia adalah lingua franca yang sama di seluruh Asia Tenggara maritim selama berabad-abad sebelum penjajahan.\n\nPedagang Arab, India, Cina, dan Eropa semuanya belajar Melayu. #bahasa",
+    thread: [
+      { text: "Sebelum ada bahasa nasional di Asia Tenggara, bahasa Melayu digunakan sebagai bahasa perdagangan dari Madagaskar di barat hingga Filipina di timur.\n\nIni bukan karena paksaan politik, tapi karena kemudahan dan fleksibilitasnya." },
+      { text: "Pelaut dan pedagang Portugis yang pertama tiba di Malaka pada 1511 belajar Melayu untuk berdagang.\n\nBegitu pula VOC Belanda, yang menerbitkan kamus Melayu-Belanda sejak 1603 — salah satu kamus Melayu tertua yang masih ada." },
+      { text: "Bahasa Indonesia modern adalah bentuk bahasa Melayu yang telah dimodernisasi dan diperkaya.\n\nHingga hari ini, Bahasa Indonesia dan Bahasa Malaysia (yang keduanya berbasis Melayu) masih saling dapat dipahami — dua negara, satu akar bahasa." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Anthony Reid — Southeast Asia in the Age of Commerce", url: "https://yalebooks.yale.edu/book/9780300047509/southeast-asia-in-the-age-of-commerce-1450-1680/" } },
+    ],
+  },
+
+  {
+    id: 101, category: "trivia", account: ACCOUNTS.trivia, time: "1h",
+    text: "Suara 'kukuruyuk' ayam jantan berbeda di setiap bahasa.\n\nIndonesia: kukuruyuk. Inggris: cock-a-doodle-doo. Jepang: ko-ke-kok-ko. Prancis: cocorico.\n\nAyam yang sama, dunia yang berbeda. #trivia #bahasa",
+    thread: [
+      { text: "Bunyi ayam jantan adalah onomatopoeia — kata yang meniru suara yang diwakilinya.\n\nNamun setiap bahasa memfilter bunyi yang sama melalui sistem fonetiknya sendiri, menghasilkan representasi yang berbeda." },
+      { text: "Beberapa versi 'kukuruyuk' di dunia:\n🇮🇩 Kukuruyuk\n🇬🇧 Cock-a-doodle-doo\n🇯🇵 Ko-ke-kok-ko\n🇫🇷 Cocorico\n🇩🇪 Kikeriki\n🇷🇺 Ku-ka-re-ku\n🇰🇷 Ko-kio-yo\n\nSemua bunyi untuk hewan yang sama." },
+      { text: "Ini menunjukkan sesuatu yang fundamental: bahasa tidak sekadar 'merefleksikan' realitas — bahasa membentuk bagaimana kita mempersepsikan dan mengkategorikan bunyi yang kita dengar.\n\nBahkan suara 'universal' pun bergantung pada bahasa yang kita gunakan untuk menggambarkannya." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "BBC — Why Roosters Sound Different in Every Language", url: "https://www.bbc.com/culture/article/20150212-why-cock-a-doodle-doo" } },
+    ],
+  },
+
+
   {
     id: 100, category: "science", account: ACCOUNTS.science, time: "1j",
     text: "Your body replaces most of its cells every 7–10 years.\n\nBut your neurons? Most of them last your entire lifetime — you're thinking with the same brain cells you had as a child. #science",
