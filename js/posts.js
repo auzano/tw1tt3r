@@ -75,13 +75,6 @@ const posts = [
       { text: "🔗 Sumber", isSource: true, source: { label: "Wikimedia Commons — Cheshire Regiment trench", url: "https://commons.wikimedia.org/wiki/File:Cheshire_Regiment_trench_Somme_1916.jpg" } },
     ],
   },
-    thread: [
-      { text: "Foto ini diambil dari jendela studio Daguerre di Boulevard du Temple, Paris.\n\nEkspor daguerreotype pada masa itu membutuhkan 7–10 menit cahaya langsung matahari. Semua yang bergerak — kuda, pejalan kaki, kereta — tidak terekam." },
-      { text: "Satu-satunya manusia yang terlihat adalah seseorang di pojok kiri bawah yang sedang menyemir sepatunya.\n\nDia berdiri cukup lama sehingga kameranya bisa merekamnya. Namanya tidak pernah diketahui." },
-      { text: "Kita tidak tahu siapa orang itu. Kita tidak tahu apakah dia sadar sedang difoto.\n\nTapi dialah manusia pertama yang terekam dalam foto — lebih dari 180 tahun lalu." },
-      { text: "🔗 Sumber", isSource: true, source: { label: "Wikimedia Commons — Boulevard du Temple", url: "https://commons.wikimedia.org/wiki/File:Boulevard_du_Temple_by_Daguerre.jpg" } },
-    ],
-  },
 
   {
     id: 149, category: "geography", account: ACCOUNTS.geography, time: "1j",
