@@ -190,60 +190,6 @@ function renderFeed() {
   updateProgress();
 }
 
-// ── PULL TO REFRESH ──
-(function setupPTR() {
-  const ptr       = document.getElementById("ptr");
-  const arrow     = document.getElementById("ptr-arrow");
-  const THRESHOLD = 72;
-  let startY = 0, pulling = false, triggered = false;
-
-  document.addEventListener("touchstart", e => {
-    if (window.scrollY > 0) return;
-    startY    = e.touches[0].clientY;
-    pulling   = true;
-    triggered = false;
-  }, { passive: true });
-
-  document.addEventListener("touchmove", e => {
-    if (!pulling) return;
-    const dy = e.touches[0].clientY - startY;
-    if (dy <= 0) { ptr.style.height = "0"; return; }
-    const h = Math.min(dy * 0.45, THRESHOLD + 16);
-    ptr.style.height = h + "px";
-    const pct = Math.min(h / THRESHOLD, 1);
-    arrow.style.opacity = String(pct);
-    if (!triggered) arrow.style.transform = `rotate(${pct * 180}deg)`;
-    if (h >= THRESHOLD && !triggered) {
-      triggered = true;
-      arrow.classList.add("ptr-spin");
-    } else if (h < THRESHOLD && triggered) {
-      triggered = false;
-      arrow.classList.remove("ptr-spin");
-    }
-  }, { passive: true });
-
-  document.addEventListener("touchend", () => {
-    if (!pulling) return;
-    pulling = false;
-    if (triggered) {
-      setTimeout(() => {
-        ptr.style.transition = "height 0.3s ease";
-        ptr.style.height     = "0";
-        arrow.classList.remove("ptr-spin");
-        arrow.style.transform = "rotate(0deg)";
-        arrow.style.opacity   = "0";
-        setTimeout(() => { ptr.style.transition = ""; }, 300);
-        renderFeed();
-      }, 500);
-    } else {
-      ptr.style.transition = "height 0.25s ease";
-      ptr.style.height     = "0";
-      arrow.style.opacity  = "0";
-      setTimeout(() => { ptr.style.transition = ""; }, 250);
-    }
-  });
-})();
-
 // ── TABS ──
 document.querySelectorAll(".tab").forEach(tab => {
   tab.addEventListener("click", () => {
@@ -301,5 +247,59 @@ if (urlTab) {
 window.addEventListener("pageshow", e => {
   if (e.persisted) renderFeed();
 });
+
+// ── NEW POSTS TOAST ──
+// Shows a "New posts" pill after a few minutes of idle — tapping shuffles and scrolls to top
+(function setupToast() {
+  const DELAY_MS = 3 * 60 * 1000; // show after 3 minutes
+  let toastTimer = null;
+  let toast = null;
+
+  function createToast() {
+    if (toast) return;
+    toast = document.createElement("div");
+    toast.id = "new-toast";
+    toast.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14">
+        <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59l-.047-.02z"/>
+      </svg>
+      New posts
+    `;
+    document.body.appendChild(toast);
+
+    // Animate in
+    requestAnimationFrame(() => toast.classList.add("toast-visible"));
+
+    toast.addEventListener("click", () => {
+      dismissToast();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      renderFeed();
+    });
+  }
+
+  function dismissToast() {
+    if (!toast) return;
+    toast.classList.remove("toast-visible");
+    setTimeout(() => {
+      toast?.remove();
+      toast = null;
+    }, 300);
+  }
+
+  function scheduleToast() {
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(createToast, DELAY_MS);
+  }
+
+  // Reset timer on user interaction
+  ["scroll", "touchstart", "click"].forEach(evt => {
+    document.addEventListener(evt, () => {
+      dismissToast();
+      scheduleToast();
+    }, { passive: true });
+  });
+
+  scheduleToast();
+})();
 
 renderFeed();
