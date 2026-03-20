@@ -19,7 +19,7 @@ const posts = [
   {
     id: 150, category: "history", account: ACCOUNTS.history, time: "30m",
     text: "Ini adalah foto tertua manusia yang pernah ada.\n\nDiambil oleh Louis Daguerre pada 1838 di Paris. Jalanan terlihat kosong — padahal ramai — karena eksposurnya butuh 10 menit. Hanya satu orang terlihat: seseorang yang sedang semir sepatu, diam cukup lama. #sejarah",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Boulevard_du_Temple_by_Daguerre.jpg/1280px-Boulevard_du_Temple_by_Daguerre.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Boulevard_du_Temple_by_Daguerre.jpg",
     thread: [
       { text: "Foto ini diambil dari jendela studio Daguerre di Boulevard du Temple, Paris.\n\nEkspor daguerreotype pada masa itu membutuhkan 7–10 menit cahaya langsung matahari. Semua yang bergerak — kuda, pejalan kaki, kereta — tidak terekam." },
       { text: "Satu-satunya manusia yang terlihat adalah seseorang di pojok kiri bawah yang sedang menyemir sepatunya.\n\nDia berdiri cukup lama sehingga kameranya bisa merekamnya. Namanya tidak pernah diketahui." },
@@ -43,7 +43,7 @@ const posts = [
   {
     id: 148, category: "ww2", account: ACCOUNTS.ww2, time: "2j",
     text: "Foto ini diambil di Nagasaki, 1945 — satu jam setelah bom atom dijatuhkan.\n\nAwan jamur membumbung 18 km ke langit. Di bawahnya, 40.000 orang tewas seketika. #PD2",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Nagasakibomb.jpg/800px-Nagasakibomb.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Nagasakibomb.jpg/640px-Nagasakibomb.jpg",
     thread: [
       { text: "Bom Fat Man dijatuhkan di Nagasaki pada 9 Agustus 1945 — tiga hari setelah Hiroshima.\n\nFoto ini diambil dari pesawat pengamat yang terbang bersama pengebom B-29 Bockscar." },
       { text: "Awan jamur membumbung hingga ketinggian 18 km dalam waktu beberapa menit.\n\nSuhu di pusat ledakan mencapai sekitar 3.900°C. Radius kerusakan total: ~1,6 km dari titik nol." },
@@ -55,7 +55,7 @@ const posts = [
   {
     id: 147, category: "trivia", account: ACCOUNTS.trivia, time: "3j",
     text: "Ini adalah foto paling jauh Bumi yang pernah diambil.\n\n'Pale Blue Dot' — diambil Voyager 1 dari jarak 6 miliar km pada 1990. Bumi hanya berukuran 0,12 piksel. #trivia #sains",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/PaleBlueDot.jpg/800px-PaleBlueDot.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/PaleBlueDot.jpg/640px-PaleBlueDot.jpg",
     thread: [
       { text: "Pada 14 Februari 1990, Carl Sagan meminta NASA untuk memutar kamera Voyager 1 dan memotret Bumi satu kali lagi sebelum kamera dimatikan selamanya.\n\nHasilnya: titik biru pucat yang hampir tidak terlihat di tengah sinar matahari yang menyebar." },
       { text: "Carl Sagan kemudian menulis:\n\n'Lihat titik itu lagi. Itulah di sini. Itulah rumah. Itulah kami. Di atasnya, semua orang yang pernah kamu cintai, semua orang yang pernah kamu kenal, semua orang yang pernah kamu dengar...'" },
@@ -67,7 +67,7 @@ const posts = [
   {
     id: 146, category: "ww1", account: ACCOUNTS.ww1, time: "4j",
     text: "Ini adalah parit di Front Barat, 1916.\n\nLumpur, kayu, kawat berduri — dan di ujung lorong ini, musuh hanya berjarak 50–100 meter. Jutaan prajurit hidup dan mati di tempat seperti ini selama 4 tahun. #PD1",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Cheshire_Regiment_trench_Somme_1916.jpg/1280px-Cheshire_Regiment_trench_Somme_1916.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Cheshire_Regiment_trench_Somme_1916.jpg/640px-Cheshire_Regiment_trench_Somme_1916.jpg",
     thread: [
       { text: "Foto ini menunjukkan prajurit dari Resimen Cheshire di parit dekat Ovillers-la-Boisselle, Prancis, pada Juli 1916 — di tengah-tengah Pertempuran Somme.\n\nMereka bersembunyi dari tembakan penembak jitu Jerman." },
       { text: "Kondisi parit:\n\n💧 Air dan lumpur setinggi lutut di musim hujan\n🐀 Ribuan tikus memakan sisa makanan dan... yang lain\n💀 Mayat kadang tertimbun di dinding parit itu sendiri\n🪲 Kutu tubuh (body lice) menginfeksi hampir semua prajurit" },
