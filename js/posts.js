@@ -17,6 +17,79 @@ const posts = [
   // ── POSTS WITH IMAGES ──
 
   {
+    id: 156, category: "science", account: ACCOUNTS.science, time: "30m",
+    text: "Ini adalah foto pertama permukaan Mars yang pernah diambil.\n\nViking 1 mendarat di Mars pada 20 Juli 1976 dan langsung mengirim foto ini ke Bumi. Butuh 19 menit bagi sinyalnya untuk sampai. #sains",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Mars_Viking_12a001.png/640px-Mars_Viking_12a001.png",
+    thread: [
+      { text: "Viking 1 adalah wahana pertama yang berhasil mendarat di Mars dan beroperasi dengan sukses.\n\nFoto pertama yang dikirim hanya menampilkan batu-batu dan tanah merah — tapi itu sudah cukup untuk mengubah segalanya. Manusia akhirnya melihat permukaan planet lain." },
+      { text: "Sebelum Viking, tidak ada yang tahu pasti seperti apa permukaan Mars.\n\nApakah berbahaya? Apakah ada kehidupan? Apakah tanahnya akan menelan wahana?\n\nFoto ini menjawab sebagian pertanyaan — dan membuka ribuan pertanyaan baru." },
+      { text: "Viking 1 beroperasi selama 6 tahun di Mars, jauh melampaui misi yang direncanakan.\n\nHingga hari ini, Mars masih menjadi satu-satunya planet selain Bumi yang pernah dijelajahi oleh robot buatan manusia secara langsung di permukaannya." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "NASA — Viking Mission to Mars", url: "https://www.nasa.gov/mission_pages/viking/" } },
+    ],
+  },
+
+  {
+    id: 155, category: "ww2", account: ACCOUNTS.ww2, time: "1j",
+    text: "Foto ini diambil pada 2 Mei 1945 di Berlin — prajurit Soviet menancapkan bendera di atas Reichstag yang hancur.\n\nPerang di Eropa berakhir tiga hari kemudian. #PD2",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Raising_a_flag_over_the_Reichstag_-_Restoration.jpg/640px-Raising_a_flag_over_the_Reichstag_-_Restoration.jpg",
+    thread: [
+      { text: "Foto ini diambil oleh fotografer Yevgeny Khaldei pada 2 Mei 1945 — dua hari setelah Hitler bunuh diri di bunkernya hanya beberapa ratus meter dari sini.\n\nReichstag, gedung parlemen Jerman, telah menjadi simbol kekuatan Nazi." },
+      { text: "Ada satu detail yang menarik: foto ini sebagian dimanipulasi.\n\nKhaldei menghapus jam tangan kedua dari pergelangan tangan salah satu prajurit — yang mengindikasikan penjarahan.\n\nVersi asli dan yang diedit keduanya kini ada di arsip sejarah." },
+      { text: "Pertempuran Berlin adalah salah satu yang paling berdarah di PD2:\n\n💀 ~80.000 prajurit Soviet tewas\n💀 ~100.000 prajurit Jerman tewas\n💀 ~125.000 warga sipil Berlin tewas\n\nSemua terjadi dalam 16 hari." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "IWM — Battle of Berlin", url: "https://www.iwm.org.uk/history/the-battle-of-berlin" } },
+    ],
+  },
+
+  {
+    id: 154, category: "history", account: ACCOUNTS.history, time: "2j",
+    text: "Foto ini diambil pada 17 Desember 1903 di Kill Devil Hills, North Carolina.\n\nPenerbangan pertama manusia. Berlangsung 12 detik. Jarak tempuh: 36 meter — lebih pendek dari lebar sayap Boeing 747. #sejarah",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Wright_brothers_first_successful_flight_Kill_Devil_Hills_North_Carolina_December_1903.jpg/640px-Wright_brothers_first_successful_flight_Kill_Devil_Hills_North_Carolina_December_1903.jpg",
+    thread: [
+      { text: "Dalam foto ini, Orville Wright berbaring di mesin terbang sementara saudaranya Wilbur berlari di sisi kanan.\n\nFoto diambil oleh John Daniels — seorang penyelamat pantai yang tidak pernah memotret apapun sebelumnya. Ini adalah foto pertama dan satu-satunya yang pernah dia ambil." },
+      { text: "Di hari yang sama, mereka terbang empat kali.\n\nPenerbangan terpanjang: 59 detik, menempuh 260 meter.\n\nMalam harinya, angin kencang membalikkan pesawat dan merusaknya. Mereka tidak pernah menerbangkannya lagi." },
+      { text: "Yang membuat pencapaian ini luar biasa: hanya 66 tahun setelah penerbangan 12 detik ini, Neil Armstrong berjalan di Bulan.\n\nDan yang membawanya ke sana sebagian: komputer panduan Apollo dikembangkan menggunakan prinsip-prinsip yang lahir dari riset Wright bersaudara." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Smithsonian — Wright Brothers First Flight", url: "https://airandspace.si.edu/stories/editorial/birth-aviation" } },
+    ],
+  },
+
+  {
+    id: 153, category: "geography", account: ACCOUNTS.geography, time: "3j",
+    text: "Machu Picchu dibangun sekitar tahun 1450 M — dan ditinggalkan hanya 100 tahun kemudian.\n\nKetika Hiram Bingham 'menemukannya' pada 1911, hutan sudah menguasai kembali sebagian besar kota. #geografi #sejarah",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Machu_Picchu_Through_Clouds_%28Unsplash%29.jpg/640px-Machu_Picchu_Through_Clouds_%28Unsplash%29.jpg",
+    thread: [
+      { text: "Machu Picchu dibangun oleh Kaisar Inca Pachacuti sekitar 1450 M sebagai kediaman kerajaan.\n\nLetaknya di ketinggian 2.430 meter di Pegunungan Andes — tersembunyi di antara dua puncak gunung yang tertutup awan." },
+      { text: "Kota ini dibangun tanpa roda, tanpa besi, dan tanpa mortar.\n\nBatu-batu besar dipotong dengan presisi tinggi sehingga saling mengunci sempurna — bahkan selembar kertas pun tidak bisa masuk di antara sambungannya.\n\nSetelah 570 tahun, tidak ada satu pun batu yang bergeser." },
+      { text: "Mengapa ditinggalkan? Paling mungkin: wabah cacar yang dibawa Spanyol menyebar lebih cepat dari kedatangan penjajah itu sendiri.\n\nKota itu mungkin sudah kosong sebelum Spanyol tahu keberadaannya — yang menjelaskan mengapa mereka tidak pernah menemukannya." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "UNESCO — Machu Picchu", url: "https://whc.unesco.org/en/list/274/" } },
+    ],
+  },
+
+  {
+    id: 152, category: "trivia", account: ACCOUNTS.trivia, time: "4j",
+    text: "Foto ikonik Einstein menjulurkan lidah diambil pada 14 Maret 1951 — ulang tahunnya yang ke-72.\n\nEinstein begitu lelah difoto sehingga ketika diminta tersenyum lagi, dia menjulurkan lidah sebagai gantinya. #trivia",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Albert_Einstein_sticks_his_tongue.jpg/640px-Albert_Einstein_sticks_his_tongue.jpg",
+    thread: [
+      { text: "Fotografer Arthur Sasse dari United Press memotret Einstein saat meninggalkan perayaan ulang tahunnya di Princeton.\n\nEinstein sudah bosan difoto sepanjang malam — ketika diminta senyum sekali lagi, dia justru menjulurkan lidah." },
+      { text: "Einstein sangat menyukai foto ini.\n\nDia meminta salinannya dan memotong bagian dirinya dari foto asli untuk dijadikan kartu pos.\n\nDia mengirimkannya ke teman-teman dengan keterangan humoris di bagian belakang." },
+      { text: "Foto asli (tidak dipotong) menampilkan dua diplomat di kanan dan kiri Einstein yang tampak kaku dan formal — kontras sempurna dengan ekspresi Einstein.\n\nVersi yang sering beredar sudah dipotong menjadi hanya wajah Einstein saja." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Princeton — Einstein Archives", url: "https://www.einstein.caltech.edu" } },
+    ],
+  },
+
+  {
+    id: 151, category: "history", account: ACCOUNTS.history, time: "5j",
+    text: "Foto ini adalah foto pertama yang pernah ada di dunia.\n\nDiambil oleh Joseph Nicéphore Niépce pada 1826 atau 1827 dari jendela rumahnya di Burgundy, Prancis. Eksposurnya butuh 8 jam. #sejarah",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/View_from_the_Window_at_Le_Gras%2C_Joseph_Nic%C3%A9phore_Ni%C3%A9pce%2C_uncompressed_UMN_source.png/640px-View_from_the_Window_at_Le_Gras%2C_Joseph_Nic%C3%A9phore_Ni%C3%A9pce%2C_uncompressed_UMN_source.png",
+    thread: [
+      { text: "Niépce melapisi pelat timah dengan bitumen — bahan yang mengeras saat terkena cahaya.\n\nDia meletakkannya di kamera obscura di lantai atas rumahnya dan membiarkannya terekspos seharian penuh.\n\nHasilnya: bayangan samar atap dan halaman yang terlihat dari dua sisi sekaligus — karena matahari bergerak selama 8 jam eksposur." },
+      { text: "Foto ini hilang selama puluhan tahun setelah Niépce meninggal.\n\nBaru ditemukan kembali pada 1952 oleh sejarawan fotografi Helmut Gernsheim di sebuah kotak di Inggris.\n\nKini disimpan di Harry Ransom Center, University of Texas." },
+      { text: "Yang sering dilupakan: antara foto pertama ini (1826) dan foto selfie pertama (2002), hanya butuh 176 tahun.\n\nAntara foto pertama dan foto dari permukaan Mars (1976): 150 tahun.\n\nTeknologi visual manusia berakselerasi luar biasa cepat." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Harry Ransom Center — View from the Window at Le Gras", url: "https://hrc.utexas.edu/niepce-heliograph/" } },
+    ],
+  },
+
+
+  {
     id: 150, category: "history", account: ACCOUNTS.history, time: "30m",
     text: "Ini adalah foto tertua manusia yang pernah ada.\n\nDiambil oleh Louis Daguerre pada 1838 di Paris. Jalanan terlihat kosong — padahal ramai — karena eksposurnya butuh 10 menit. Hanya satu orang terlihat: seseorang yang sedang semir sepatu, diam cukup lama. #sejarah",
     image: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Boulevard_du_Temple_by_Daguerre.jpg",
