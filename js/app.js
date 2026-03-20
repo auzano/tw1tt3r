@@ -284,4 +284,11 @@ if (urlTab) {
   } catch {}
 })();
 
+// ── BFCACHE FIX — re-render when returning via back button (Safari) ──
+// Safari restores pages from cache without re-running JS.
+// pageshow fires even on cached restore; persisted=true means it came from bfcache.
+window.addEventListener("pageshow", e => {
+  if (e.persisted) renderFeed();
+});
+
 renderFeed();
