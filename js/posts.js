@@ -8,123 +8,237 @@ const ACCOUNTS = {
   language:  { name: "Words & Language",handle: "@wordsandlang",  emoji: "🗣️", bg: "#e0a800" },
   geography: { name: "World Map",       handle: "@worldmapfacts", emoji: "🗺️", bg: "#0d9488" },
   science:   { name: "Science Bits",    handle: "@sciencebits",   emoji: "🔬", bg: "#ff7043" },
-  ww1:       { name: "The Great War",   handle: "@thegreatwar",   emoji: "⚔️", bg: "#8b1a1a" },
+  ww1:       { name: "Perang Dunia I",  handle: "@perangdunia1",  emoji: "⚔️", bg: "#8b1a1a" },
+  ww2:       { name: "Perang Dunia II", handle: "@perangdunia2",  emoji: "🎖️", bg: "#1a3a5c" },
 };
 
 const posts = [
 
-  // ── WW1 ──
+  // ── WW1 (Bahasa Indonesia) ──
 
   {
     id: 135, category: "ww1", account: ACCOUNTS.ww1, time: "1j",
-    text: "World War 1 was triggered by one assassination — but the real cause was a web of secret alliances that turned a regional dispute into a global catastrophe.\n\nAustria declared war on Serbia. Within 6 weeks, 8 nations were at war. #WW1",
+    text: "PD1 dipicu oleh satu pembunuhan — tapi penyebab sebenarnya adalah jaringan aliansi rahasia yang mengubah konflik regional menjadi bencana global.\n\nAustria menyatakan perang ke Serbia. Dalam 6 minggu, 8 negara sudah berperang. #PD1",
     thread: [
-      { text: "On June 28, 1914, Archduke Franz Ferdinand of Austria-Hungary was shot in Sarajevo by Gavrilo Princip, a Bosnian Serb nationalist.\n\nAustria blamed Serbia. Serbia partially complied with Austria's ultimatum — but not fully enough." },
-      { text: "What followed was a chain reaction of treaty obligations:\n\n🇦🇹 Austria declares war on Serbia\n🇷🇺 Russia mobilizes to defend Serbia\n🇩🇪 Germany declares war on Russia\n🇫🇷 France (allied with Russia) is drawn in\n🇬🇧 Britain enters when Germany invades neutral Belgium" },
-      { text: "The system of alliances — designed to create security — instead created a domino effect nobody fully anticipated.\n\nEurope had spent decades building a powder keg. The assassination was merely the spark." },
-      { text: "🔗 Source", isSource: true, source: { label: "Imperial War Museum — Causes of WW1", url: "https://www.iwm.org.uk/history/what-were-the-causes-of-the-first-world-war" } },
+      { text: "Pada 28 Juni 1914, Archduke Franz Ferdinand dari Austria-Hungaria ditembak di Sarajevo oleh Gavrilo Princip, nasionalis Serbia-Bosnia.\n\nAustria menyalahkan Serbia. Serbia sebagian mematuhi ultimatum Austria — tapi tidak sepenuhnya." },
+      { text: "Reaksi berantai dari kewajiban perjanjian:\n\n🇦🇹 Austria menyatakan perang ke Serbia\n🇷🇺 Rusia memobilisasi untuk membela Serbia\n🇩🇪 Jerman menyatakan perang ke Rusia\n🇫🇷 Prancis terseret\n🇬🇧 Inggris masuk saat Jerman menginvasi Belgia yang netral" },
+      { text: "Sistem aliansi yang dirancang untuk menciptakan keamanan justru menciptakan efek domino yang tidak diantisipasi siapapun.\n\nEropa telah menghabiskan puluhan tahun membangun bom waktu. Pembunuhan itu hanya sumbu yang menyalakannya." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Imperial War Museum — Penyebab PD1", url: "https://www.iwm.org.uk/history/what-were-the-causes-of-the-first-world-war" } },
     ],
   },
 
   {
     id: 134, category: "ww1", account: ACCOUNTS.ww1, time: "2j",
-    text: "Soldiers on the Western Front lived in trenches for years — sometimes just 50 meters from the enemy.\n\nThe trenches stretched 700 km from Belgium to Switzerland without a single gap. #WW1",
+    text: "Prajurit di Front Barat hidup di parit selama bertahun-tahun — terkadang hanya 50 meter dari musuh.\n\nParit membentang 700 km dari Belgia hingga Swiss tanpa celah satu pun. #PD1",
     thread: [
-      { text: "By late 1914, both sides had dug in — creating a continuous line of trenches from the North Sea coast of Belgium to the Swiss border." },
-      { text: "Life in the trenches:\n\n🐀 Rats the size of cats fed on corpses\n💧 Waterlogged mud caused 'trench foot' — feet rotted while attached\n💣 Random artillery made every moment dangerous\n😷 Disease killed more than combat in some periods" },
-      { text: "The two front lines were sometimes only 50–100 meters apart.\n\nSoldiers could hear the enemy talking and laughing across no-man's-land.\n\nYet for four years, neither side broke through decisively — millions died for advances measured in meters." },
-      { text: "🔗 Source", isSource: true, source: { label: "BBC History — Life in the Trenches", url: "https://www.bbc.co.uk/history/worldwars/wwone/trenchlife_01.shtml" } },
+      { text: "Pada akhir 1914, kedua belah pihak telah menggali parit — membentuk garis tak terputus dari pantai Laut Utara Belgia hingga perbatasan Swiss." },
+      { text: "Kehidupan di parit sangat brutal:\n\n🐀 Tikus sebesar kucing memakan mayat\n💧 Lumpur menggenangi menyebabkan 'trench foot' — kaki membusuk saat masih menempel\n💣 Artileri acak membuat setiap momen berbahaya\n😷 Penyakit membunuh lebih banyak dari pertempuran" },
+      { text: "Dua garis depan terkadang hanya berjarak 50–100 meter.\n\nPrajurit bisa mendengar musuh berbicara dan tertawa di seberang.\n\nNamun selama empat tahun, tidak ada pihak yang berhasil menerobos — jutaan mati demi kemajuan yang diukur dalam meter." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "BBC History — Kehidupan di Parit", url: "https://www.bbc.co.uk/history/worldwars/wwone/trenchlife_01.shtml" } },
     ],
   },
 
   {
     id: 133, category: "ww1", account: ACCOUNTS.ww1, time: "3j",
-    text: "The Christmas Truce of 1914 was one of the most extraordinary moments in military history.\n\nGerman and British soldiers stopped fighting, met in no-man's-land, and played football. #WW1",
+    text: "Gencatan Senjata Natal 1914 adalah salah satu momen paling luar biasa dalam sejarah militer.\n\nPrajurit Jerman dan Inggris berhenti berperang, bertemu di tanah antara parit, dan bermain sepak bola. #PD1",
     thread: [
-      { text: "On Christmas Eve 1914, German soldiers placed candles and Christmas trees along their trenches and began singing 'Stille Nacht.'\n\nBritish soldiers across the wire responded with applause and their own songs." },
-      { text: "By Christmas morning, soldiers from both sides were meeting in no-man's-land.\n\nThey exchanged gifts: German cigarettes for British corned beef. They showed each other photographs of their families." },
-      { text: "Football matches broke out spontaneously in several sectors.\n\nThe truce was not ordered by any commander — it happened from the bottom up, among ordinary men who recognized their shared humanity.\n\nBy Boxing Day, the killing had resumed." },
-      { text: "🔗 Source", isSource: true, source: { label: "Imperial War Museum — The Christmas Truce", url: "https://www.iwm.org.uk/history/the-christmas-truce" } },
+      { text: "Pada Malam Natal 1914, prajurit Jerman meletakkan lilin dan pohon Natal di sepanjang parit mereka dan menyanyikan 'Stille Nacht'.\n\nPrajurit Inggris bertepuk tangan dan membalas dengan lagu mereka sendiri." },
+      { text: "Pada pagi Natal, prajurit dari kedua sisi bertemu di tanah antara parit.\n\nMereka bertukar hadiah: rokok Jerman ditukar kornet sapi Inggris. Mereka menunjukkan foto keluarga masing-masing." },
+      { text: "Pertandingan sepak bola spontan pecah di beberapa sektor.\n\nGencatan ini tidak diperintahkan komandan manapun — terjadi dari bawah ke atas, di antara orang-orang biasa yang menyadari kemanusiaan bersama mereka.\n\nPada 26 Desember, pembunuhan kembali dilanjutkan." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Imperial War Museum — Gencatan Senjata Natal", url: "https://www.iwm.org.uk/history/the-christmas-truce" } },
     ],
   },
 
   {
     id: 132, category: "ww1", account: ACCOUNTS.ww1, time: "4j",
-    text: "July 1, 1916 remains the bloodiest day in British military history.\n\n57,470 British casualties on the first day of the Battle of the Somme. 19,240 killed. In one day. #WW1",
+    text: "1 Juli 1916 tetap menjadi hari paling berdarah dalam sejarah militer Inggris.\n\n57.470 korban pada hari pertama Pertempuran Somme. 19.240 tewas. Dalam satu hari. #PD1",
     thread: [
-      { text: "British commanders were confident: a week of artillery bombardment would destroy German defenses before the infantry attacked.\n\nIt didn't work. The Germans had dug bunkers 12 meters underground." },
-      { text: "When the artillery stopped, Germans emerged in seconds, set up machine guns, and cut down the advancing British infantry — walking in neat lines across open fields." },
-      { text: "By nightfall:\n💀 57,470 British casualties\n💀 19,240 killed\n💀 35,493 wounded\n\nThe battle ran four more months. Total Allied casualties: 600,000+. Territorial gain: ~10 km." },
-      { text: "🔗 Source", isSource: true, source: { label: "National Army Museum — Battle of the Somme", url: "https://www.nam.ac.uk/explore/battle-somme" } },
+      { text: "Komandan Inggris yakin: satu minggu artileri akan menghancurkan pertahanan Jerman sebelum infanteri menyerang.\n\nTidak berhasil. Jerman telah menggali bunker sedalam 12 meter di bawah tanah." },
+      { text: "Ketika artileri berhenti, Jerman muncul dalam hitungan detik, memasang senapan mesin, dan menembaki infanteri Inggris yang berjalan dalam barisan rapi melintasi lapangan terbuka." },
+      { text: "Saat malam tiba:\n💀 57.470 korban Inggris\n💀 19.240 tewas\n💀 35.493 luka-luka\n\nPertempuran berlanjut empat bulan lagi. Total korban Sekutu: 600.000+. Kemajuan wilayah: sekitar 10 km." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "National Army Museum — Pertempuran Somme", url: "https://www.nam.ac.uk/explore/battle-somme" } },
     ],
   },
 
   {
     id: 131, category: "ww1", account: ACCOUNTS.ww1, time: "5j",
-    text: "Poison gas was used in warfare for the first time in WW1.\n\nGermany released 168 tons of chlorine gas at Ypres on April 22, 1915. Soldiers didn't know what was coming. #WW1",
+    text: "Gas beracun digunakan dalam peperangan untuk pertama kalinya di PD1.\n\nJerman melepaskan 168 ton gas klorin di Ypres pada 22 April 1915. Para prajurit tidak tahu apa yang datang. #PD1",
     thread: [
-      { text: "Allied soldiers saw a strange yellow-green cloud drifting toward them from the German lines.\n\nChlorine gas destroys lung tissue — victims effectively drowned on dry land. The initial attack created a 6 km gap in Allied lines." },
-      { text: "Both sides rapidly developed gas weapons:\n\n🟡 Chlorine (1915) — visible, strong smell\n🟤 Phosgene (1915) — 18x more lethal, less visible\n⚫ Mustard gas (1917) — blistered skin and lungs, lingered in soil for days" },
-      { text: "By the war's end, over 1 million soldiers had been gassed. ~90,000 died from gas alone.\n\nThe 1925 Geneva Protocol banning chemical weapons was a direct response to WW1's gas warfare." },
-      { text: "🔗 Source", isSource: true, source: { label: "History.com — Chemical Warfare in WW1", url: "https://www.history.com/topics/world-war-i/chemical-warfare" } },
+      { text: "Prajurit Sekutu melihat awan kuning-hijau aneh melayang dari arah parit Jerman.\n\nGas klorin menghancurkan jaringan paru-paru — korban tenggelam di daratan kering. Serangan awal menciptakan celah 6 km di garis Sekutu." },
+      { text: "Kedua sisi berkembang pesat:\n\n🟡 Klorin (1915) — terlihat, bau menyengat\n🟤 Fosgen (1915) — 18x lebih mematikan, kurang terlihat\n⚫ Gas mustard (1917) — melepuhkan kulit dan paru-paru, bertahan di tanah berhari-hari" },
+      { text: "Pada akhir perang, lebih dari 1 juta prajurit terkena gas. ~90.000 meninggal.\n\nProtokol Jenewa 1925 yang melarang senjata kimia adalah respons langsung terhadap perang gas PD1." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "History.com — Perang Kimia di PD1", url: "https://www.history.com/topics/world-war-i/chemical-warfare" } },
     ],
   },
 
   {
     id: 130, category: "ww1", account: ACCOUNTS.ww1, time: "6j",
-    text: "The war that was 'over by Christmas' lasted 1,561 days.\n\nWhen it ended at 11:00 AM on November 11, 1918 — soldiers were still being killed at 10:59 AM. #WW1",
+    text: "Perang yang seharusnya 'selesai sebelum Natal' berlangsung 1.561 hari.\n\nKetika berakhir pukul 11:00 pagi pada 11 November 1918 — prajurit masih dibunuh pukul 10:59. #PD1",
     thread: [
-      { text: "In August 1914, soldiers marched off expecting a short, glorious war.\n\nGerman Kaiser Wilhelm II told his troops they'd be 'home before the leaves fall.' British recruiters promised it would be 'over by Christmas.'" },
-      { text: "The armistice was signed at 5:00 AM on November 11 — but didn't take effect until 11:00 AM.\n\nIn those six hours, both sides kept fighting. An estimated 11,000 soldiers were killed or wounded on the final morning — more than on D-Day in WW2." },
-      { text: "Total death toll:\n💀 ~9–10 million military dead\n💀 ~7–10 million civilian dead\n💀 Millions more from the 1918 flu pandemic, accelerated by wartime conditions\n\nThe war that was supposed to end all wars ended with the seeds of another already planted." },
-      { text: "🔗 Source", isSource: true, source: { label: "Encyclopaedia Britannica — World War I", url: "https://www.britannica.com/event/World-War-I" } },
+      { text: "Pada Agustus 1914, prajurit berangkat dengan harapan perang pendek.\n\nKaiser Jerman berkata pasukannya akan 'pulang sebelum daun jatuh.' Perekrut Inggris berjanji 'selesai sebelum Natal.'" },
+      { text: "Gencatan senjata ditandatangani pukul 05:00 pagi — tapi baru berlaku pukul 11:00.\n\nDalam enam jam itu, kedua sisi terus bertempur. Diperkirakan 11.000 prajurit menjadi korban pada pagi terakhir — lebih dari di D-Day dalam PD2." },
+      { text: "Total korban jiwa:\n💀 ~9–10 juta prajurit tewas\n💀 ~7–10 juta warga sipil tewas\n💀 Jutaan lagi dari pandemi flu 1918\n\nPerang yang seharusnya mengakhiri semua perang berakhir dengan benih perang berikutnya sudah tertanam." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Encyclopaedia Britannica — Perang Dunia I", url: "https://www.britannica.com/event/World-War-I" } },
     ],
   },
 
   {
     id: 129, category: "ww1", account: ACCOUNTS.ww1, time: "7j",
-    text: "The sinking of the Lusitania killed 1,198 people in 18 minutes.\n\nGermany had actually warned passengers not to board. The warning ran in US newspapers on the same day as the passenger list. #WW1",
+    text: "Tenggelamnya Lusitania menewaskan 1.198 orang dalam 18 menit.\n\nJerman sebenarnya sudah memperingatkan penumpang untuk tidak naik. Iklan peringatan itu muncul di koran AS bersamaan dengan daftar penumpang. #PD1",
     thread: [
-      { text: "On May 7, 1915, the British liner RMS Lusitania was torpedoed by a German U-boat off Ireland.\n\nOf 1,962 aboard, 1,198 died — including 128 Americans." },
-      { text: "Germany had placed ads in US newspapers warning that ships sailing near Britain were liable to attack.\n\nThe ads ran the same day as the Lusitania's passenger list. Most passengers dismissed the warning as a bluff." },
-      { text: "The sinking caused massive outrage in the US and fundamentally shifted American public opinion against Germany.\n\nWhen Germany resumed unrestricted submarine warfare in 1917, it gave the US justification to declare war — sealing Germany's fate." },
-      { text: "🔗 Source", isSource: true, source: { label: "Smithsonian — The Sinking of the Lusitania", url: "https://www.smithsonianmag.com/history/the-real-reason-the-lusitania-sank-180955396/" } },
+      { text: "Pada 7 Mei 1915, kapal penumpang Inggris RMS Lusitania ditembak torpedo kapal selam Jerman di lepas pantai Irlandia.\n\nDari 1.962 orang di kapal, 1.198 tewas — termasuk 128 warga Amerika." },
+      { text: "Jerman memasang iklan di koran-koran AS yang memperingatkan kapal yang berlayar dekat Inggris rentan diserang.\n\nIklan tersebut diterbitkan pada hari yang sama dengan daftar penumpang Lusitania. Kebanyakan penumpang mengabaikannya." },
+      { text: "Penenggelaman itu menyebabkan kemarahan besar di AS.\n\nKetika Jerman melanjutkan perang kapal selam tanpa batas pada 1917, AS memiliki alasan untuk menyatakan perang — yang akhirnya menyegel nasib Jerman." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Smithsonian — Tenggelamnya Lusitania", url: "https://www.smithsonianmag.com/history/the-real-reason-the-lusitania-sank-180955396/" } },
     ],
   },
 
   {
     id: 128, category: "ww1", account: ACCOUNTS.ww1, time: "8j",
-    text: "Lawrence of Arabia was a real person — and his guerrilla campaign reshaped the Middle East.\n\nHe was 28 when it started. The borders he helped draw still cause conflict today. #WW1",
+    text: "Lawrence of Arabia adalah orang nyata — dan kampanye gerilyanya membentuk ulang Timur Tengah.\n\nIa berusia 28 tahun ketika memulainya. Perbatasan yang ia ikut gambar masih menyebabkan konflik hari ini. #PD1",
     thread: [
-      { text: "T.E. Lawrence was a British officer sent to Arabia to coordinate with Arab tribal leaders against the Ottoman Empire, which was allied with Germany." },
-      { text: "His key insight: the Arabs didn't need to defeat the Ottomans in pitched battle — just make them undefeatable.\n\n'The Turks could not fight a battle, so I must not give them one,' he wrote.\n\nConstant harassment of supply lines and railway sabotage proved more effective than frontal assault." },
-      { text: "The Arab Revolt helped capture Damascus in 1918.\n\nBut Lawrence felt he had betrayed the Arabs — Britain and France had secretly agreed (the Sykes-Picot Agreement) to divide the Middle East between themselves.\n\nThose borders, drawn by European officials with rulers on maps, still shape Middle Eastern conflicts today." },
-      { text: "🔗 Source", isSource: true, source: { label: "Imperial War Museum — T.E. Lawrence", url: "https://www.iwm.org.uk/history/who-was-lawrence-of-arabia" } },
+      { text: "T.E. Lawrence adalah perwira Inggris yang dikirim ke Arabia untuk berkoordinasi dengan pemimpin suku Arab melawan Kekaisaran Ottoman, yang bersekutu dengan Jerman." },
+      { text: "Wawasan utamanya: orang Arab tidak perlu mengalahkan Ottoman dalam pertempuran terbuka — cukup jadikan diri mereka tak terkalahkan.\n\n'Turki tidak bisa melawan pertempuran, jadi aku tidak boleh memberinya,' tulisnya." },
+      { text: "Pemberontakan Arab membantu merebut Damaskus pada 1918.\n\nNamun Lawrence merasa mengkhianati orang Arab — Inggris dan Prancis diam-diam sepakat (Perjanjian Sykes-Picot) membagi Timur Tengah antara mereka.\n\nPerbatasan yang digambar pejabat Eropa dengan penggaris itu masih membentuk konflik Timur Tengah hari ini." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Imperial War Museum — T.E. Lawrence", url: "https://www.iwm.org.uk/history/who-was-lawrence-of-arabia" } },
     ],
   },
 
   {
     id: 127, category: "ww1", account: ACCOUNTS.ww1, time: "9j",
-    text: "WW1 introduced tanks, aircraft, submarines, chemical weapons, and radio to modern warfare.\n\nIn 4 years, war went from cavalry charges to mechanized slaughter. #WW1",
+    text: "PD1 memperkenalkan tank, pesawat, kapal selam, senjata kimia, dan radio ke peperangan modern.\n\nDalam 4 tahun, perang melompat dari serangan kavaleri ke pembantaian mekanis. #PD1",
     thread: [
-      { text: "Tanks were introduced at the Somme in September 1916. The Germans were so shocked they broke and ran.\n\nEarly tanks were slow and unreliable — but the concept transformed land warfare forever." },
-      { text: "Aircraft evolved from fragile reconnaissance biplanes to fighter planes and strategic bombers in four years.\n\nGermany bombed London with Zeppelin airships and Gotha bombers — the first strategic bombing campaign in history." },
-      { text: "Submarines nearly won the war for Germany.\n\nIn early 1917, U-boats were sinking Allied merchant ships faster than they could be built — Britain came within weeks of running out of food.\n\nThe convoy system finally defeated the U-boat campaign." },
-      { text: "🔗 Source", isSource: true, source: { label: "IWM — Technology of WW1", url: "https://www.iwm.org.uk/history/9-things-that-changed-the-world-during-world-war-one" } },
+      { text: "Tank diperkenalkan di Somme pada September 1916. Jerman begitu terkejut hingga melarikan diri.\n\nTank awal lambat dan tidak bisa diandalkan — tapi konsepnya mengubah perang darat selamanya." },
+      { text: "Pesawat berkembang dari biplans pengintai rapuh menjadi pesawat tempur dan pengebom strategis dalam empat tahun.\n\nJerman mengebom London dengan kapal udara Zeppelin dan pengebom Gotha — kampanye pengeboman strategis pertama dalam sejarah." },
+      { text: "Kapal selam hampir memenangkan perang untuk Jerman.\n\nPada awal 1917, U-boat menenggelamkan kapal dagang Sekutu lebih cepat dari yang bisa dibangun — Inggris hampir kehabisan makanan.\n\nSistem konvoi akhirnya mengalahkan kampanye U-boat." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "IWM — Teknologi PD1", url: "https://www.iwm.org.uk/history/9-things-that-changed-the-world-during-world-war-one" } },
     ],
   },
 
   {
     id: 126, category: "ww1", account: ACCOUNTS.ww1, time: "10j",
-    text: "The Treaty of Versailles was so punishing toward Germany it arguably made WW2 inevitable.\n\nEconomist John Maynard Keynes walked out in protest and predicted exactly what would happen. #WW1",
+    text: "Perjanjian Versailles sangat menghukum Jerman hingga hampir pasti menjadi penyebab PD2.\n\nEkonom John Maynard Keynes keluar dari delegasi sebagai protes dan memprediksi tepatnya apa yang akan terjadi. #PD1",
     thread: [
-      { text: "The Treaty of Versailles (1919) forced Germany to:\n\n💸 Pay 132 billion gold marks in reparations (~$400 billion today)\n🗺️ Lose 13% of its territory\n⚔️ Reduce its army to 100,000 men\n📜 Accept full blame for the war" },
-      { text: "Keynes resigned from the British delegation in protest and published 'The Economic Consequences of the Peace' — predicting the treaty would cause economic collapse and political extremism in Germany.\n\nHe was right within 15 years." },
-      { text: "The humiliation of Versailles became Hitler's most powerful political tool.\n\nHis entire rise was built on promising to reverse the 'stab in the back' that he claimed caused Germany's defeat.\n\nThe peace that ended WW1 made WW2 almost inevitable." },
-      { text: "🔗 Source", isSource: true, source: { label: "Britannica — Treaty of Versailles", url: "https://www.britannica.com/event/Treaty-of-Versailles-1919" } },
+      { text: "Perjanjian Versailles (1919) memaksa Jerman:\n\n💸 Membayar 132 miliar mark emas sebagai reparasi\n🗺️ Kehilangan 13% wilayah\n⚔️ Mengurangi tentara menjadi 100.000 orang\n📜 Menerima sepenuhnya kesalahan atas perang" },
+      { text: "Keynes mengundurkan diri dari delegasi Inggris sebagai protes dan menerbitkan prediksi bahwa perjanjian itu akan menyebabkan keruntuhan ekonomi dan ekstremisme politik di Jerman.\n\nDia terbukti benar dalam 15 tahun." },
+      { text: "Penghinaan Versailles menjadi alat politik paling ampuh Hitler.\n\nSeluruh kebangkitannya dibangun di atas janji membalikkan 'tikaman dari belakang' yang diklaim menyebabkan kekalahan Jerman.\n\nPerdamaian yang mengakhiri PD1 membuat PD2 hampir tak terhindarkan." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Britannica — Perjanjian Versailles", url: "https://www.britannica.com/event/Treaty-of-Versailles-1919" } },
     ],
   },
 
+  // ── WW2 (Bahasa Indonesia) ──
+
+  {
+    id: 145, category: "ww2", account: ACCOUNTS.ww2, time: "1j",
+    text: "PD2 dimulai ketika Jerman menginvasi Polandia pada 1 September 1939 dengan taktik baru yang disebut Blitzkrieg — 'perang kilat'.\n\nPolandia jatuh dalam 35 hari. #PD2",
+    thread: [
+      { text: "Blitzkrieg adalah kombinasi tank cepat, infanteri bermotor, dan serangan udara yang terkoordinasi — semuanya bergerak jauh lebih cepat dari yang bisa ditangani pertahanan tradisional.\n\nAlih-alih garis parit statis seperti PD1, Jerman menembus jauh ke belakang garis musuh sebelum pertahanan bisa diorganisir." },
+      { text: "Polandia diserang dari dua arah: Jerman dari barat dan Uni Soviet dari timur (berdasarkan Pakta Molotov-Ribbentrop yang mengejutkan dunia).\n\nInggris dan Prancis menyatakan perang ke Jerman tapi terlambat bertindak untuk menyelamatkan Polandia." },
+      { text: "Dalam 35 hari, salah satu negara paling tangguh di Eropa Timur takluk.\n\nBlitzkrieg kemudian menghancurkan Prancis dalam 46 hari pada 1940 — lebih cepat dari yang diramalkan siapapun, termasuk Jerman sendiri." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Britannica — Blitzkrieg", url: "https://www.britannica.com/topic/blitzkrieg" } },
+    ],
+  },
+
+  {
+    id: 144, category: "ww2", account: ACCOUNTS.ww2, time: "2j",
+    text: "Operasi Dunkirk menyelamatkan 338.000 tentara Sekutu dalam 9 hari menggunakan armada perahu sipil.\n\nDari kapal nelayan hingga kapal feri, warga sipil Inggris menyeberangi Selat untuk menyelamatkan tentara mereka. #PD2",
+    thread: [
+      { text: "Pada Mei 1940, tentara Inggris dan Prancis terkepung di pantai Dunkirk, Prancis utara, oleh pasukan Jerman yang maju.\n\nHitler secara kontroversial menghentikan serangan darat selama beberapa hari — memberi waktu bagi evakuasi." },
+      { text: "Operasi Dinamo (26 Mei – 4 Juni 1940) mengerahkan segala yang bisa mengapung:\n\n⛵ 800+ kapal, dari destroyer hingga perahu nelayan kecil\n🚢 338.226 tentara dievakuasi\n✈️ RAF bertarung di udara untuk melindungi pantai" },
+      { text: "Churchill menyebutnya 'keajaiban pengiriman.'\n\nMeski secara militer merupakan kekalahan, Dunkirk menyelamatkan tulang punggung Tentara Inggris.\n\nTanpa Dunkirk, Inggris mungkin terpaksa berunding dengan Hitler." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "IWM — Dunkirk", url: "https://www.iwm.org.uk/history/dunkirk-the-story-of-the-evacuation" } },
+    ],
+  },
+
+  {
+    id: 143, category: "ww2", account: ACCOUNTS.ww2, time: "3j",
+    text: "Holocaust adalah pembunuhan sistematis 6 juta orang Yahudi oleh Nazi Jerman.\n\nIni bukan pogrom spontan — melainkan operasi industri yang direncanakan secara birokrasi dengan kereta api, formulir, dan jadwal. #PD2",
+    thread: [
+      { text: "Konferensi Wannsee pada Januari 1942 adalah pertemuan para pejabat Nazi untuk mengkoordinasikan 'Solusi Akhir' — pembunuhan sistematis seluruh orang Yahudi di Eropa.\n\nRapatnya berlangsung kurang dari 2 jam." },
+      { text: "Enam kamp pemusnahan dibangun di Polandia yang diduduki:\n\n☠️ Auschwitz-Birkenau: 1,1 juta tewas\n☠️ Treblinka: 900.000 tewas\n☠️ Belzec, Sobibor, Chelmno, Majdanek\n\nTotal: ~6 juta orang Yahudi, ~5–6 juta non-Yahudi lainnya" },
+      { text: "Yang membuat Holocaust berbeda adalah industrialisasinya.\n\nKorban dijadwalkan dengan kereta, diproses dengan formulir, diidentifikasi dengan nomor tato.\n\nBirokrasi normal digunakan untuk melaksanakan kejahatan yang tidak normal." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Yad Vashem — Holocaust", url: "https://www.yadvashem.org/holocaust.html" } },
+    ],
+  },
+
+  {
+    id: 142, category: "ww2", account: ACCOUNTS.ww2, time: "4j",
+    text: "Pertempuran Stalingrad mungkin adalah pertempuran paling mematikan dalam sejarah manusia.\n\nSelama 5 bulan, ~2 juta orang menjadi korban. Dari 300.000 tentara Jerman yang terkepung, hanya ~5.000 yang pulang ke rumah. #PD2",
+    thread: [
+      { text: "Jerman menyerang Stalingrad pada Agustus 1942, bermaksud merebut kota yang menyandang nama Stalin dan memotong jalur minyak Soviet.\n\nMereka tidak pernah membayangkan betapa mahalnya harganya." },
+      { text: "Pertempuran berubah menjadi pertarungan jarak dekat di setiap gedung, setiap lantai, bahkan setiap ruangan.\n\nPrajurit Soviet menyebutnya Rattenkrieg — perang tikus.\n\nRata-rata harapan hidup prajurit yang baru tiba di Stalingrad: kurang dari 24 jam." },
+      { text: "Pada November 1942, Soviet melancarkan Operasi Uranus — mengepung 300.000 tentara Jerman.\n\nHitler melarang penarikan. Jenderal Paulus menyerah pada 2 Februari 1943.\n\nDari 300.000 yang terkepung, hanya ~5.000 yang akhirnya kembali ke Jerman setelah perang." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Britannica — Pertempuran Stalingrad", url: "https://www.britannica.com/event/Battle-of-Stalingrad" } },
+    ],
+  },
+
+  {
+    id: 141, category: "ww2", account: ACCOUNTS.ww2, time: "5j",
+    text: "D-Day — 6 Juni 1944 — adalah operasi amfibi terbesar dalam sejarah.\n\n156.000 tentara Sekutu mendarat di pantai Normandia dalam satu hari. Harganya: ribuan nyawa dalam hitungan jam. #PD2",
+    thread: [
+      { text: "Operasi Overlord menerjunkan pasukan dari lima pantai: Utah, Omaha, Gold, Juno, dan Sword.\n\nOmaha adalah yang paling berdarah — pertahanan Jerman yang kuat menewaskan ribuan tentara Amerika dalam jam pertama." },
+      { text: "Persiapannya melibatkan salah satu operasi penipuan terbesar dalam sejarah:\n\nOperasi Fortitude membuat Jerman yakin invasi akan terjadi di Pas-de-Calais, bukan Normandia.\n\nBahkan setelah D-Day, Hitler masih percaya Normandia hanya pengalih perhatian." },
+      { text: "Keberhasilan D-Day membuka Front Barat dan memaksa Jerman berperang di dua front sekaligus.\n\nDalam 11 bulan setelah D-Day, Jerman menyerah tanpa syarat.\n\nTanpa D-Day, PD2 di Eropa bisa berlangsung bertahun-tahun lebih lama." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "IWM — D-Day", url: "https://www.iwm.org.uk/history/d-day-the-normandy-landings" } },
+    ],
+  },
+
+  {
+    id: 140, category: "ww2", account: ACCOUNTS.ww2, time: "6j",
+    text: "Bom atom dijatuhkan di Hiroshima pada 6 Agustus 1945 — dan mengubah sifat perang selamanya.\n\nDalam satu ledakan, 80.000 orang tewas seketika. Kota hancur dalam hitungan detik. #PD2",
+    thread: [
+      { text: "Little Boy meledak 600 meter di atas Hiroshima pukul 08:15 pagi.\n\nPanas di pusat ledakan mencapai 3.000–4.000°C — lebih panas dari permukaan Matahari." },
+      { text: "80.000 orang tewas seketika. Hingga akhir 1945, total korban tewas mencapai 90.000–166.000 — termasuk mereka yang meninggal akibat luka bakar, radiasi, dan penyakit.\n\nTiga hari kemudian, Nagasaki dibom. Jepang menyerah 6 hari setelah itu." },
+      { text: "Proyek Manhattan mempekerjakan 130.000 orang di 30 lokasi berbeda.\n\nBanyak ilmuwan yang ikut membangunnya kemudian menyesal.\n\nOppenheimer mengutip kitab Hindu setelah menyaksikan uji coba pertama: 'Kini aku menjadi Kematian, penghancur dunia.'" },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Atomic Archive — Hiroshima", url: "https://www.atomicarchive.com/history/hiroshima/" } },
+    ],
+  },
+
+  {
+    id: 139, category: "ww2", account: ACCOUNTS.ww2, time: "7j",
+    text: "Nazi Jerman mengkodekan pesan militer menggunakan mesin Enigma yang dianggap tak bisa dipecahkan.\n\nAlan Turing dan timnya di Bletchley Park memecahkannya — dan mungkin mempersingkat perang 2 tahun. #PD2",
+    thread: [
+      { text: "Mesin Enigma menghasilkan lebih dari 150 triliun kemungkinan pengaturan.\n\nSetiap pagi, seluruh pengaturan diubah — jadi bahkan jika kamu memecahkan kode hari ini, besok mulai dari nol lagi." },
+      { text: "Alan Turing mengembangkan mesin elektro-mekanis bernama Bombe yang bisa menguji ribuan kemungkinan per detik.\n\nDigabungkan dengan kecerdikan manusia yang memanfaatkan kebiasaan operator Jerman, kode Enigma akhirnya terpecahkan." },
+      { text: "Rahasia pemecahan Enigma dijaga ketat hingga 1974.\n\nPihak Sekutu harus berpura-pura tidak tahu untuk menghindari Jerman mengganti sistem kode.\n\nAlan Turing meninggal pada 1954 — tidak pernah mendapat pengakuan publik atas kontribusinya selama hidupnya." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Bletchley Park — Enigma", url: "https://bletchleypark.org.uk/learn/enigma" } },
+    ],
+  },
+
+  {
+    id: 138, category: "ww2", account: ACCOUNTS.ww2, time: "8j",
+    text: "Anne Frank bersembunyi di belakang rak buku selama 761 hari bersama keluarganya di Amsterdam.\n\nDiarinya menjadi kesaksian terpenting dari Holocaust — ditulis oleh seorang gadis berusia 13–15 tahun. #PD2",
+    thread: [
+      { text: "Keluarga Frank mulai bersembunyi di 'Annex Rahasia' pada Juli 1942 — sebuah apartemen tersembunyi di belakang kantor ayahnya.\n\nMereka tinggal di sana selama 761 hari, tidak pernah keluar, bergantung pada beberapa teman yang membawakan makanan." },
+      { text: "Anne mulai menulis diari pada ulang tahunnya yang ke-13.\n\nTulisannya menangkap kehidupan sehari-hari, ketakutan, harapan, dan perkembangan seorang remaja — dalam kondisi yang tidak pernah seharusnya dialami siapapun." },
+      { text: "Pada Agustus 1944, seseorang mengkhianati mereka. Seluruh keluarga ditangkap.\n\nAnne meninggal di kamp Bergen-Belsen pada Februari atau Maret 1945 — beberapa minggu sebelum kamp dibebaskan.\n\nAyahnya, Otto Frank, adalah satu-satunya yang selamat. Dia yang menerbitkan diari putrinya." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Anne Frank House", url: "https://www.annefrank.org/en/anne-frank/her-life/" } },
+    ],
+  },
+
+  {
+    id: 137, category: "ww2", account: ACCOUNTS.ww2, time: "9j",
+    text: "Pertempuran Midway pada Juni 1942 mengubah arah perang di Pasifik dalam 4 hari.\n\nAS menghancurkan 4 kapal induk Jepang — dan tidak pernah kehilangan inisiatif lagi. #PD2",
+    thread: [
+      { text: "Jepang merencanakan serangan ke Midway untuk memancing sisa armada AS ke dalam perangkap.\n\nMereka tidak tahu bahwa AS telah memecahkan kode angkatan laut Jepang — dan sudah mengetahui rencana mereka sebelumnya." },
+      { text: "Pada 4–7 Juni 1942, serangan torpedo AS yang lambat menyerang kapal induk Jepang dan sebagian besar ditembak jatuh.\n\nTapi serangan mereka memaksa pesawat tempur Jepang turun ke ketinggian rendah — tepat saat pengebom terjun AS datang dari atas." },
+      { text: "Dalam beberapa menit:\n\n💥 Akagi, Kaga, Soryu terbakar\n💥 Hiryu menyusul beberapa jam kemudian\n\nJepang kehilangan 4 kapal induk, 248 pesawat, dan 3.000 prajurit terlatih dalam 4 hari.\n\nKemampuan ofensif strategis Jepang tidak pernah pulih sepenuhnya." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Naval History — Battle of Midway", url: "https://www.history.navy.mil/content/history/museums/nmusn/explore/photography/wwii/wwii-pacific/battle-of-midway.html" } },
+    ],
+  },
+
+  {
+    id: 136, category: "ww2", account: ACCOUNTS.ww2, time: "10j",
+    text: "Jerman menyerah pada 8 Mei 1945. Jepang menyusul 3 bulan kemudian.\n\nPD2 menewaskan 70–85 juta orang — sekitar 3% dari seluruh populasi dunia saat itu. #PD2",
+    thread: [
+      { text: "PD2 adalah konflik paling mematikan dalam sejarah manusia:\n\n💀 ~70–85 juta total kematian\n💀 ~50–55 juta warga sipil (termasuk Holocaust)\n💀 ~21–25 juta tentara\n\nSekitar 3% dari total populasi dunia pada 1940 meninggal." },
+      { text: "Uni Soviet menderita paling berat: ~27 juta kematian — hampir sepertiga dari total korban perang.\n\nPada beberapa titik, Uni Soviet kehilangan satu tentara setiap 7 detik." },
+      { text: "Dari abu PD2 muncul tatanan dunia baru:\n\n🌐 PBB didirikan\n💶 Rencana Marshall merekonstruksi Eropa\n⚛️ Perang Dingin dimulai\n🇮🇱 Negara Israel didirikan\n🇯🇵 Jepang bertransformasi jadi demokrasi\n🇺🇳 Hak asasi manusia dikodifikasikan dalam hukum internasional" },
+      { text: "🔗 Sumber", isSource: true, source: { label: "National WWII Museum — By the Numbers", url: "https://www.nationalww2museum.org/students-teachers/student-resources/research-starters/research-starters-worldwide-deaths-world-war" } },
+    ],
+  },
+
+  // ── POST 125–101 (Bahasa Indonesia) ──
   // ── POST 125–101 (Bahasa Indonesia) ──
 
   {

@@ -62,6 +62,8 @@ const CAT_LABEL = {
   language:  "Language",
   geography: "Geography",
   science:   "Science",
+  ww1:       "WW1",
+  ww2:       "WW2",
 };
 
 const CAT_COLOR = {
@@ -70,6 +72,8 @@ const CAT_COLOR = {
   language:  "#e0a800",
   geography: "#0d9488",
   science:   "#ff7043",
+  ww1:       "#8b1a1a",
+  ww2:       "#1a3a5c",
 };
 
 // ── STREAK EMOJI ──
