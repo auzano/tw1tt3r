@@ -75,6 +75,61 @@ const posts = [
       { text: "🔗 Sumber", isSource: true, source: { label: "Wikimedia Commons — Cheshire Regiment trench", url: "https://commons.wikimedia.org/wiki/File:Cheshire_Regiment_trench_Somme_1916.jpg" } },
     ],
   },
+    thread: [
+      { text: "Foto ini diambil dari jendela studio Daguerre di Boulevard du Temple, Paris.\n\nEkspor daguerreotype pada masa itu membutuhkan 7–10 menit cahaya langsung matahari. Semua yang bergerak — kuda, pejalan kaki, kereta — tidak terekam." },
+      { text: "Satu-satunya manusia yang terlihat adalah seseorang di pojok kiri bawah yang sedang menyemir sepatunya.\n\nDia berdiri cukup lama sehingga kameranya bisa merekamnya. Namanya tidak pernah diketahui." },
+      { text: "Kita tidak tahu siapa orang itu. Kita tidak tahu apakah dia sadar sedang difoto.\n\nTapi dialah manusia pertama yang terekam dalam foto — lebih dari 180 tahun lalu." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Wikimedia Commons — Boulevard du Temple", url: "https://commons.wikimedia.org/wiki/File:Boulevard_du_Temple_by_Daguerre.jpg" } },
+    ],
+  },
+
+  {
+    id: 149, category: "geography", account: ACCOUNTS.geography, time: "1j",
+    text: "Foto ini diambil dari bulan pada 1968 — dan mengubah cara manusia memandang Bumi selamanya.\n\n'Earthrise' oleh astronaut William Anders. Tidak ada daratan yang terlihat dari jarak itu, hanya bola biru kecil di tengah kegelapan. #geografi #sains",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/NASA-Apollo8-Dec24-Earthrise.jpg/1280px-NASA-Apollo8-Dec24-Earthrise.jpg",
+    thread: [
+      { text: "Pada 24 Desember 1968, astronaut Apollo 8 William Anders memotret Bumi yang terbit di cakrawala bulan.\n\nFoto ini — dijuluki 'Earthrise' — menjadi salah satu foto paling berpengaruh dalam sejarah." },
+      { text: "Anders kemudian berkata: 'Kami datang untuk menjelajahi bulan, dan yang paling penting kami temukan adalah Bumi.'\n\nFoto ini memicu gerakan lingkungan modern — orang-orang melihat betapa rapuh dan kecilnya planet kita." },
+      { text: "Bumi tampak hanya berdiameter sekitar 2 derajat dari permukaan bulan — ukuran yang hampir sama dengan kuku jempol yang diangkat pada lengan yang diulurkan.\n\nDan di dalamnya: seluruh sejarah manusia." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "NASA — Earthrise (Apollo 8)", url: "https://www.nasa.gov/image-article/earthrise/" } },
+    ],
+  },
+
+  {
+    id: 148, category: "ww2", account: ACCOUNTS.ww2, time: "2j",
+    text: "Foto ini diambil di Nagasaki, 1945 — satu jam setelah bom atom dijatuhkan.\n\nAwan jamur membumbung 18 km ke langit. Di bawahnya, 40.000 orang tewas seketika. #PD2",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Nagasakibomb.jpg/800px-Nagasakibomb.jpg",
+    thread: [
+      { text: "Bom Fat Man dijatuhkan di Nagasaki pada 9 Agustus 1945 — tiga hari setelah Hiroshima.\n\nFoto ini diambil dari pesawat pengamat yang terbang bersama pengebom B-29 Bockscar." },
+      { text: "Awan jamur membumbung hingga ketinggian 18 km dalam waktu beberapa menit.\n\nSuhu di pusat ledakan mencapai sekitar 3.900°C. Radius kerusakan total: ~1,6 km dari titik nol." },
+      { text: "Dari ~250.000 penduduk Nagasaki, sekitar 40.000 tewas seketika.\n\nHingga akhir 1945, total korban mencapai 70.000–80.000 jiwa — termasuk mereka yang meninggal akibat luka bakar dan radiasi.\n\nEnam hari kemudian, Jepang menyerah." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Wikimedia Commons — Nagasaki bomb", url: "https://commons.wikimedia.org/wiki/File:Nagasakibomb.jpg" } },
+    ],
+  },
+
+  {
+    id: 147, category: "trivia", account: ACCOUNTS.trivia, time: "3j",
+    text: "Ini adalah foto paling jauh Bumi yang pernah diambil.\n\n'Pale Blue Dot' — diambil Voyager 1 dari jarak 6 miliar km pada 1990. Bumi hanya berukuran 0,12 piksel. #trivia #sains",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/PaleBlueDot.jpg/800px-PaleBlueDot.jpg",
+    thread: [
+      { text: "Pada 14 Februari 1990, Carl Sagan meminta NASA untuk memutar kamera Voyager 1 dan memotret Bumi satu kali lagi sebelum kamera dimatikan selamanya.\n\nHasilnya: titik biru pucat yang hampir tidak terlihat di tengah sinar matahari yang menyebar." },
+      { text: "Carl Sagan kemudian menulis:\n\n'Lihat titik itu lagi. Itulah di sini. Itulah rumah. Itulah kami. Di atasnya, semua orang yang pernah kamu cintai, semua orang yang pernah kamu kenal, semua orang yang pernah kamu dengar...'" },
+      { text: "Voyager 1 kini berada lebih dari 23 miliar km dari Bumi — dan masih mengirimkan data.\n\nSinyal radionya membutuhkan lebih dari 21 jam untuk mencapai Bumi, bergerak dengan kecepatan cahaya." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "NASA — Pale Blue Dot", url: "https://www.nasa.gov/jpl/pale-blue-dot-image-turns-25/" } },
+    ],
+  },
+
+  {
+    id: 146, category: "ww1", account: ACCOUNTS.ww1, time: "4j",
+    text: "Ini adalah parit di Front Barat, 1916.\n\nLumpur, kayu, kawat berduri — dan di ujung lorong ini, musuh hanya berjarak 50–100 meter. Jutaan prajurit hidup dan mati di tempat seperti ini selama 4 tahun. #PD1",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Cheshire_Regiment_trench_Somme_1916.jpg/1280px-Cheshire_Regiment_trench_Somme_1916.jpg",
+    thread: [
+      { text: "Foto ini menunjukkan prajurit dari Resimen Cheshire di parit dekat Ovillers-la-Boisselle, Prancis, pada Juli 1916 — di tengah-tengah Pertempuran Somme.\n\nMereka bersembunyi dari tembakan penembak jitu Jerman." },
+      { text: "Kondisi parit:\n\n💧 Air dan lumpur setinggi lutut di musim hujan\n🐀 Ribuan tikus memakan sisa makanan dan... yang lain\n💀 Mayat kadang tertimbun di dinding parit itu sendiri\n🪲 Kutu tubuh (body lice) menginfeksi hampir semua prajurit" },
+      { text: "Yang paling mencekam: normalnya.\n\nPrajurit memasak, bermain kartu, menulis surat, dan tidur di tempat yang sama di mana rekan mereka tewas kemarin.\n\nAdaptasi manusia terhadap kondisi yang tidak manusiawi." },
+      { text: "🔗 Sumber", isSource: true, source: { label: "Wikimedia Commons — Cheshire Regiment trench", url: "https://commons.wikimedia.org/wiki/File:Cheshire_Regiment_trench_Somme_1916.jpg" } },
+    ],
+  },
 
   // ── WW1 (Bahasa Indonesia) ──
 
