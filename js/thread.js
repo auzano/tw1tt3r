@@ -56,6 +56,7 @@ function init() {
       </div>
     </div>
     <div class="tweet-focal-text">${renderNewlines(post.text)}</div>
+    ${post.image ? `<div class="tweet-img-wrap tweet-img-wrap--focal"><img class="tweet-img" src="${post.image}" alt="" loading="lazy" onerror="this.closest('.tweet-img-wrap').style.display='none'" /></div>` : ""}
     <div class="tweet-focal-time">${post.time} · baca.</div>
     <div class="tweet-focal-divider"></div>
     <div class="tweet-actions">
@@ -118,6 +119,7 @@ function init() {
             <span class="tweet-handle">${post.account.handle}</span>
           </div>
           <div class="tweet-text">${renderNewlines(item.text)}</div>
+          ${item.image ? `<div class="tweet-img-wrap"><img class="tweet-img" src="${item.image}" alt="" loading="lazy" onerror="this.closest('.tweet-img-wrap').style.display='none'" /></div>` : ""}
           <div class="tweet-actions">
             <div class="action comment"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
             <div class="action repost"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 014-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 01-4 4H3"/></svg></div>

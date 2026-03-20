@@ -58,6 +58,16 @@ function tweetTextHTML(text) {
   return `<div class="tweet-text">${renderHashtags(text)}</div>`;
 }
 
+function tweetImageHTML(post) {
+  if (!post.image) return "";
+  return `
+    <div class="tweet-img-wrap">
+      <img class="tweet-img" src="${post.image}" alt="" loading="lazy"
+        onerror="this.closest('.tweet-img-wrap').style.display='none'" />
+    </div>
+  `;
+}
+
 function tweetHTML(post) {
   const loved = isLoved(post.id);
   return `
@@ -71,6 +81,7 @@ function tweetHTML(post) {
           <span class="tweet-time">${post.time}</span>
         </div>
         ${tweetTextHTML(post.text)}
+        ${tweetImageHTML(post)}
         <div class="tweet-actions">
           <div class="action comment" data-stop>
             <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
