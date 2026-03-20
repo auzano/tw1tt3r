@@ -150,11 +150,19 @@ html, body {
 /* ── PULL TO REFRESH ── */
 
 #ptr {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: center;
   height: 0;
   overflow: hidden;
+  width: 48px;
+  background: #111;
+  border-radius: 0 0 24px 24px;
   will-change: height;
 }
 
